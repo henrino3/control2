@@ -1,0 +1,53 @@
+<%= form_for(@bank) do |f| %>
+  <% if @bank.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bank.errors.count, "error") %> prohibited this bank from being saved:</h2>
+
+      <ul>
+      <% @bank.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :bank_type %><br>
+    <%= f.text_field :bank_type %>
+  </div>
+  <div class="field">
+    <%= f.label :registration_no %><br>
+    <%= f.text_field :registration_no %>
+  </div>
+  <div class="field">
+    <%= f.label :founded_data %><br>
+    <%= f.text_field :founded_data %>
+  </div>
+  <div class="field">
+    <%= f.label :main_service %><br>
+    <%= f.text_field :main_service %>
+  </div>
+  <div class="field">
+    <%= f.label :bank_email %><br>
+    <%= f.text_field :bank_email %>
+  </div>
+  <div class="field">
+    <%= f.label :bank_website %><br>
+    <%= f.text_field :bank_website %>
+  </div>
+  <div class="field">
+    <%= f.label :bank_logo_url %><br>
+    <%= f.text_field :bank_logo_url %>
+  </div>
+  <div class="field">
+    <%= f.label :token %><br>
+    <%= f.text_field :token %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

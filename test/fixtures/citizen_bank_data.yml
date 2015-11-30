@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  national_id: MyString
+  bank_id: MyString
+  account_id: MyString
+  citizen_id: 
+
+two:
+  national_id: MyString
+  bank_id: MyString
+  account_id: MyString
+  citizen_id: 

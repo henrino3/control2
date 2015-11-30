@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>National:</strong>
+  <%= @citizen_bank_datum.national_id %>
+</p>
+
+<p>
+  <strong>Bank:</strong>
+  <%= @citizen_bank_datum.bank_id %>
+</p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @citizen_bank_datum.account_id %>
+</p>
+
+<p>
+  <strong>Citizen:</strong>
+  <%= @citizen_bank_datum.citizen %>
+</p>
+
+<%= link_to 'Edit', edit_citizen_bank_datum_path(@citizen_bank_datum) %> |
+<%= link_to 'Back', citizen_bank_data_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @citizen.name %>
+</p>
+
+<p>
+  <strong>Phone num:</strong>
+  <%= @citizen.phone_num %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @citizen.email %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @citizen.address %>
+</p>
+
+<p>
+  <strong>National:</strong>
+  <%= @citizen.national_id %>
+</p>
+
+<%= link_to 'Edit', edit_citizen_path(@citizen) %> |
+<%= link_to 'Back', citizens_path %>

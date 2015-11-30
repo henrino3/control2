@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Citizen Bank Data</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>National</th>
+      <th>Bank</th>
+      <th>Account</th>
+      <th>Citizen</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @citizen_bank_data.each do |citizen_bank_datum| %>
+      <tr>
+        <td><%= citizen_bank_datum.national_id %></td>
+        <td><%= citizen_bank_datum.bank_id %></td>
+        <td><%= citizen_bank_datum.account_id %></td>
+        <td><%= citizen_bank_datum.citizen %></td>
+        <td><%= link_to 'Show', citizen_bank_datum %></td>
+        <td><%= link_to 'Edit', edit_citizen_bank_datum_path(citizen_bank_datum) %></td>
+        <td><%= link_to 'Destroy', citizen_bank_datum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Citizen bank datum', new_citizen_bank_datum_path %>
