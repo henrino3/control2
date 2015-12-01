@@ -26,4 +26,5 @@
 </p>
 
 <%= link_to 'Edit', edit_citizen_path(@citizen) %> |
+<%= link_to 'Sign out', destroy_admin_session_path , method: :delete, data: { confirm: 'Are you sure?' } %> !
 <%= link_to 'Back', citizens_path %>

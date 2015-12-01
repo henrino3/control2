@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+  devise_for :admins
   get '/transaction/get', to: 'banks#getTransactionApi'
   post '/transaction/post', to: 'transactions#postTransactionApi'
   resources :banks
