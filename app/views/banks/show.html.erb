@@ -1,49 +1,157 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @bank.name %>
-</p>
+    <div id="wrapper">
 
-<p>
-  <strong>Bank type:</strong>
-  <%= @bank.bank_type %>
-</p>
+        <!-- Sidebar -->
+        <div  id="sidebar-wrapper" style="background-color:#101010">
+            <ul style="padding-top:100px;" class="sidebar-nav">
+                <li class="sidebar-brand">
+                </li> 
+                <font size="5" face="arial">
+                <li>
+                <hr>
+                    <a href="#" onclick="bankPage('dashboard')"><i class="fa-dashboard " > Dashboard</a></i>
+                </li>
+                <hr>
+                <li>
+                    <a href="#" onclick="bankPage('accounts')"><i class="fa-users">  Accounts</i></a>
+                </li>
+                
+                <hr>
+                <li>
+                    <a href="#" onclick="bankPage('profile')" ><i class="fa-cog"> Settings</i></a>
+                </li>
+                <hr>
+                </font>
+            </ul>
+        </div>
+            
+        <!-- /#sidebar-wrapper -->
+       <br><br>
+       <div style="margin-top:30%" id="dashboard" class="dashboard">dashboard</div>
 
-<p>
-  <strong>Registration no:</strong>
-  <%= @bank.registration_no %>
-</p>
+    <center>  
+<div  id="accounts" style="margin-top:10%;width:90%" class="accounts">
+<div style="display:none">
+<%= citizens=@bank.citizen_bank_data %>
+</div>
 
-<p>
-  <strong>Founded data:</strong>
-  <%= @bank.founded_data %>
-</p>
 
-<p>
-  <strong>Main service:</strong>
-  <%= @bank.main_service %>
-</p>
+<div class="input-group"> <span class="input-group-addon">Filter</span>
 
-<p>
-  <strong>Bank email:</strong>
-  <%= @bank.bank_email %>
-</p>
+    <input id="filter" type="text" class="form-control" placeholder="Type here...">
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Acc #</th>
+            <th>Last transaction Date</th>
+        </tr>
+    </thead>
+    <tbody class="searchable">
+    <% citizens.each do |citizen| %>
+        <tr>
+        <div style="display:none">
+    <%= count=0 %>
+           <%= citizenbio= Citizen.find_by(:id => citizen.citizen_id ) %>
+            </div>
+            <td><%= count=count+1 %> </td>
+            <td><%= citizenbio.name %></td>
+            <td><%= citizen.account_id %></td>
+            <td><%= citizenbio.transactions.last. created_at   %></td>
+        </tr>
+     <% end %>   
+    </tbody>
+</table>
+</div>
+</center>
 
-<p>
-  <strong>Bank website:</strong>
-  <%= @bank.bank_website %>
-</p>
+        <!-- Page Content -->
+        <div id="main-pan">
+        <div  id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row" id="profile">
+                    <div class="col-lg-12">
+                    <br>
+    
+<ol class="breadcrumb">
+  <li><a href="#"><font size="5">Bank</font></a></li>
+  <li class="active"><font size="5">Profile</font></li>
+</ol>
+ <a  href="#menu-toggle" class="btn btn-default fa-bars pull-left" id="menu-toggle">Toggle Menu</a>
+<br><br><br><br><center>
 
-<p>
-  <strong>Bank logo url:</strong>
-  <%= @bank.bank_logo_url %>
-</p>
+  
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="table-responsive">
+        <table  class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Your Api Key</th>
+              <th>Profile</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+           
+            <tr>
+              <td><div class="panel panel-default"><div class="panel-body">
 
-<p>
-  <strong>Token:</strong>
-  <%= @bank.token %>
-</p>
+                <p>
+                <center>
+               
+                  
+                  <font size="4"><strong>Token: </strong><%= @bank.token %></font></center></p>
+                  <a href="#" data-toggle="modal" data-target="#docs">View Api Documentation</a>
+                  <button class="btn btn-default pull-right">Generate New</button>
+                </p>
+              </div></div></td>
+              <td><div class="panel panel-default">
+  
+  <div class="panel-body">
+<%= render 'form' %>
+  </div>
+</div></td>
+              
+            </tr>
+           
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="5" class="text-center">.</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div><!--end of .table-responsive-->
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_bank_path(@bank) %> |
-<%= link_to 'Back', banks_path %>
+
+<div id="docs" style="width:60%" class="modal " role="dialog">
+  <div class="modal-dialog" >
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      
+      <div class="modal-body">
+        <p>API DOcs to be attached</p>
+      </div>
+     </div>
+  </div>
+</div>
+
+<!-- dashboard end -->
+<div style="display:none">
+  
+  <%= @K = @bank.transactions %>
+  <%= @f=@K.first%>
+  <%= @f.id%>
+</div>
+
+</center>
+<script type="text/javascript">init();</script>
+  

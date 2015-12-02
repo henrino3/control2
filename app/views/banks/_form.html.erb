@@ -11,43 +11,46 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="input-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name  , :class =>"form-control input-lg" , :placeholder =>"Bank name" %>
   </div>
+  <div >
+</div>
   <div class="field">
     <%= f.label :bank_type %><br>
-    <%= f.text_field :bank_type %>
+    <%= f.text_field :bank_type , :class =>"form-control input-lg" , :placeholder =>"Bank type" %>
   </div>
   <div class="field">
     <%= f.label :registration_no %><br>
-    <%= f.text_field :registration_no %>
+    <%= f.text_field :registration_no , :class =>"form-control input-lg" , :placeholder =>"Registration # " %>
   </div>
   <div class="field">
     <%= f.label :founded_data %><br>
-    <%= f.text_field :founded_data %>
+    <%= f.text_field :founded_data , :class =>"form-control input-lg" , :placeholder =>"founded date" , :type => "date"%>
   </div>
   <div class="field">
     <%= f.label :main_service %><br>
-    <%= f.text_field :main_service %>
+    <%= f.text_field :main_service , :class =>"form-control input-lg" , :placeholder =>"Bank name" %>
   </div>
   <div class="field">
     <%= f.label :bank_email %><br>
-    <%= f.text_field :bank_email %>
+    <%= f.text_field :bank_email , :class =>"form-control input-lg" , :placeholder =>"Bank email" %>
   </div>
   <div class="field">
     <%= f.label :bank_website %><br>
-    <%= f.text_field :bank_website %>
+    <%= f.text_field :bank_website , :class =>"form-control input-lg" , :placeholder =>"Bank website" %>
   </div>
+  <!--
   <div class="field">
     <%= f.label :bank_logo_url %><br>
     <%= f.text_field :bank_logo_url %>
-  </div>
-  <div class="field">
+  </div>-->
+<!--  <div class="field">
     <%= f.label :token %><br>
     <%= f.text_field :token %>
-  </div>
+  </div>-->
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "btn btn-default pull-right", :value =>"Update Profile"%>
   </div>
 <% end %>
