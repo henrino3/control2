@@ -1,3 +1,4 @@
+<center>
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Banks</h1>
@@ -26,7 +27,7 @@
         <td><%= bank.registration_no %></td>
         <td><%= bank.founded_data %></td>
         <td><%= bank.main_service %></td>
-        <td><%= bank.bank_email %></td>
+        <td><%= bank.email %></td>
         <td><%= bank.bank_website %></td>
         <td><%= bank.bank_logo_url %></td>
         <td><%= bank.token %></td>
@@ -41,3 +42,5 @@
 <br>
 
 <%= link_to 'New Bank', new_bank_path %>
+<%= link_to 'Sign out', destroy_admin_session_path , method: :delete, data: { confirm: 'Are you sure?' } %> !
+</center>

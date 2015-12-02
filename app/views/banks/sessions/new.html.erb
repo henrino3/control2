@@ -1,0 +1,33 @@
+<center>
+<br><br><br><br><br><br>
+<div class="panel" style="width:35%;height:255px;background-color:#DEDADA "><div class="panel-header " style="background-color:"><h2><font color="white">Log in</font></h2></div>
+
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email , :class => "pull-left"%><br />
+    <%= f.email_field :email, autofocus: true ,:class =>"form-control " %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password , :class => "pull-left"%><br />
+    <%= f.password_field :password, autocomplete: "off" , :class =>"form-control "%>
+  </div>
+<!--
+  <% if devise_mapping.rememberable? -%>
+    <div class="field pull-right">
+      <%= f.check_box :remember_me ,:class =>"form-control input-lg "%>
+      <%= f.label :remember_me %>
+    </div>
+  <% end -%>
+-->
+  <div class="actions pull-right">
+    <%= f.submit "Log in" ,:class => "btn btn-default btn-lg" %>
+  </div>
+<% end %>
+<div class="pull-left">
+<%= render "banks/shared/links" %>
+</div>
+</div>
+
+</center>

@@ -1,11 +1,45 @@
 Rails.application.routes.draw do
-  get '/transaction/get', to: 'banks#getTransactionApi'
-  post '/transaction/post', to: 'transactions#postTransactionApi'
+
+
+  root 'home_pages#index'
+
+  resources :citizens
+
+  devise_for :banks,
+  :controllers => {
+    sessions: 'banks/sessions',
+    registrations: 'banks/registrations'
+  }
+
+  devise_for :admins, 
+  :controllers => {
+    sessions: 'admin/sessions',
+    registrations: 'admin/registrations'
+  }
+  
   resources :banks
   resources :transactions
   resources :citizen_bank_data
-  resources :citizens
-  root 'citizens#index'
+  #transaction access by banks
+  get '/transaction/get', to: 'banks#getTransactionApi'
+  post '/transaction/post', to: 'transactions#postTransactionApi'
+
+  get  '/citizen/get' , to: 'citizen#getcitizen'
+  post  '/citizen/post' , to:'citizen#postcitizen'
+
+  
+
+
+
+  # devise_scope :admins do
+  #   #root to: 'citizens#index', :constraints => {:subdomain => /.+/}
+  #   root to: 'citizens#index' , as: :admins_root # creates admin_root_path
+  # end
+  # devise_scope :banks do
+  #   root to: 'banks#index' , as: :banks_root# creates bank_root_path
+  # end
+    #root "banks#index"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

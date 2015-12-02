@@ -4,7 +4,9 @@ class CitizenBankDataController < ApplicationController
   # GET /citizen_bank_data
   # GET /citizen_bank_data.json
   def index
+
     @citizen_bank_data = CitizenBankDatum.all
+    
   end
 
   # GET /citizen_bank_data/1
@@ -24,18 +26,22 @@ class CitizenBankDataController < ApplicationController
   # POST /citizen_bank_data
   # POST /citizen_bank_data.json
   def create
+    @bank =Bank.find_by(:token => params[:token])
     @citizen_bank_datum = CitizenBankDatum.new(citizen_bank_datum_params)
-
     respond_to do |format|
-      if @citizen_bank_datum.save
-        format.html { redirect_to @citizen_bank_datum, notice: 'Citizen bank datum was successfully created.' }
-        format.json { render :show, status: :created, location: @citizen_bank_datum }
-      else
-        format.html { render :new }
-        format.json { render json: @citizen_bank_datum.errors, status: :unprocessable_entity }
-      end
+    if @bank
+      if @bank.token == params[:token]
+          if @citizen_bank_datum.save
+            format.html { redirect_to @citizen_bank_datum, notice: 'Citizen bank datum was successfully created.' }
+            format.json { render :show, status: :created, location: @citizen_bank_datum }
+            end      
+        else
+          format.html { render :new }
+          format.json { render json: @citizen_bank_datum.errors, status: :unprocessable_entity }
+        end
     end
   end
+end
 
   # PATCH/PUT /citizen_bank_data/1
   # PATCH/PUT /citizen_bank_data/1.json
@@ -71,4 +77,4 @@ class CitizenBankDataController < ApplicationController
     def citizen_bank_datum_params
       params.require(:citizen_bank_datum).permit(:national_id, :bank_id, :account_id, :citizen_id)
     end
-end
+  end
