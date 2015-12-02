@@ -155,7 +155,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
-  devise (~> 3.5, >= 3.5.2)
+  devise
   hirb
   jbuilder (~> 2.0)
   jquery-rails

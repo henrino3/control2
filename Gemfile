@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 #add devise
-gem 'devise', '~> 3.5', '>= 3.5.2'
+gem 'devise'
 # beautify db view
 gem 'hirb' 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
