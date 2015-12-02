@@ -48,3 +48,5 @@ bower.json
 # Ignore pow environment settings
 .powenv
  
+# Ignore .idea folder from Ruby Mine
+.idea

@@ -65,25 +65,25 @@ class BanksController < ApplicationController
   #get getTransaction
   def getTransactionApi
     #fetch data pertaining to that bank
-      @bank = Bank.find_by(:token => params[:token])
-      respond_to do |format|
+    @bank = Bank.find_by(:token => params[:token])
+    respond_to do |format|
       if  @bank
         if  @bank.token == params[:token]
             #bank=banks.where(:token =>"32147").limit(20)
             @transactions = OpenStruct.new(:bank => @bank , :transactions => @bank.transactions ,:status => 200 ,:message =>"REQUEST SUCCESSFUL")
-             format.json { render json: @transactions }
-         end 
-      else 
+            format.json { render json: @transactions }
+          end 
+        else 
           @getTransactionError = OpenStruct.new(:status => 402, :message => "ACCESS DENIED")
           format.json { render json: @getTransactionError , status: :unprocessable_entity }
-              end
         end
-      end  
+      end
+    end  
     #post transactions to the transaction log 
     #post postTransaction 
 
 
-  private
+    private
     # Use callbacks to share common setup or constraints between actions.
     def set_bank
       @bank = Bank.find(params[:id])
@@ -95,4 +95,4 @@ class BanksController < ApplicationController
     end
 
     
-end
+  end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151201135143) do
+ActiveRecord::Schema.define(version: 20151202220008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,20 +53,21 @@ ActiveRecord::Schema.define(version: 20151201135143) do
     t.string   "token"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "bank_id"
   end
 
-  add_index "banks", ["bank_id"], name: "index_banks_on_bank_id", using: :btree
+  add_index "banks", ["email"], name: "index_banks_on_email", unique: true, using: :btree
+  add_index "banks", ["reset_password_token"], name: "index_banks_on_reset_password_token", unique: true, using: :btree
 
   create_table "citizen_bank_data", force: :cascade do |t|
     t.string   "national_id"
-    t.string   "bank_id"
     t.string   "account_id"
     t.integer  "citizen_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "bank_id"
   end
 
+  add_index "citizen_bank_data", ["bank_id"], name: "index_citizen_bank_data_on_bank_id", using: :btree
   add_index "citizen_bank_data", ["citizen_id"], name: "index_citizen_bank_data_on_citizen_id", using: :btree
 
   create_table "citizens", force: :cascade do |t|
@@ -92,24 +93,7 @@ ActiveRecord::Schema.define(version: 20151201135143) do
   add_index "transactions", ["bank_id"], name: "index_transactions_on_bank_id", using: :btree
   add_index "transactions", ["citizen_id"], name: "index_transactions_on_citizen_id", using: :btree
 
-  create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-  end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
+  add_foreign_key "citizen_bank_data", "banks"
   add_foreign_key "citizen_bank_data", "citizens"
   add_foreign_key "transactions", "citizens"
 end

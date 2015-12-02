@@ -35,7 +35,7 @@ class BanksControllerTest < ActionController::TestCase
   end
 
   test "should update bank" do
-    patch :update, id: @bank, bank: { bank_email: @bank.bank_email, bank_logo_url: @bank.bank_logo_url, bank_type: @bank.bank_type, bank_website: @bank.bank_website, founded_data: @bank.founded_data, main_service: @bank.main_service, name: @bank.name, registration_no: @bank.registration_no, token: @bank.token }
+    patch :update, id: @bank, bank: { email: @bank.email, bank_logo_url: @bank.bank_logo_url, bank_type: @bank.bank_type, bank_website: @bank.bank_website, founded_data: @bank.founded_data, main_service: @bank.main_service, name: @bank.name, registration_no: @bank.registration_no, token: @bank.token }
     assert_redirected_to bank_path(assigns(:bank))
   end
 
