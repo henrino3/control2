@@ -60,7 +60,14 @@ class CitizensController < ApplicationController
       format.json { head :no_content }
     end
   end
+ #post to change token
+  def genToken
+    @bank=Bank.find(params[:token])
+    @bank.token=params[:new]
+    @bank.save
+  end
 
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_citizen

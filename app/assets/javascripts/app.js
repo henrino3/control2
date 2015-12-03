@@ -1,45 +1,47 @@
 
 $(document).ready(function () {
 
-    (function ($) {
+	(function ($) {
 
-        $('#filter').keyup(function () {
+		$('#filter').keyup(function () {
 
-            var rex = new RegExp($(this).val(), 'i');
-            $('.searchable tr').hide();
-            $('.searchable tr').filter(function () {
-                return rex.test($(this).text());
-            }).show();
+			var rex = new RegExp($(this).val(), 'i');
+			$('.searchable tr').hide();
+			$('.searchable tr').filter(function () {
+				return rex.test($(this).text());
+			}).show();
 
-        })
+		})
 
-    }(jQuery));
+	}(jQuery));
 
 });
 
+//baknk fade effect
+
 function bankPage(option){
 	if(option == "dashboard"){
-       $("#dashboard").show();
-       $("#accounts").hide();
-       $("#profile").hide();
+		$("#dashboard").show();
+		$("#accounts").hide();
+		$("#profile").hide();
 
 	}
 	else if (option == "accounts"){
-	   $("#accounts").show();
-       $("#dashboard").hide();
-       $("#profile").hide();
+		$("#accounts").show();
+		$("#dashboard").hide();
+		$("#profile").hide();
 	}
 	else{
-	   $("#profile").show();
-       $("#dashboard").hide();
-       $("#accounts").hide();
+		$("#profile").show();
+		$("#dashboard").hide();
+		$("#accounts").hide();
 
 	}
 }
 
- function init(){
-       $("#accounts").hide();
-       $("#profile").hide();
-   }
+function init(){
+	$("#accounts").hide();
+	$("#profile").hide();
+}
 
-   
+

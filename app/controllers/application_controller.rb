@@ -7,6 +7,11 @@ class ApplicationController < ActionController::Base
   
   protected
 
+    def method_name
+    	puts "this is something"
+    	@name = "sds"
+    	
+    end
    def configure_permitted_parameters
   	devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :bank_type, :registration_no, :founded_data, :main_service, :bank_website, :email, :password, :password_confirmation) }
   	devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :bank_type, :password) }

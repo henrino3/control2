@@ -77,6 +77,7 @@ class BanksController < ApplicationController
           @getTransactionError = OpenStruct.new(:status => 402, :message => "ACCESS DENIED")
           format.json { render json: @getTransactionError , status: :unprocessable_entity }
         end
+
       end
     end  
     #post transactions to the transaction log 
@@ -84,6 +85,31 @@ class BanksController < ApplicationController
 
 
     private
+
+      end  
+  def genToken
+    #fetch data pertaining to that bank
+      @bank = Bank.find_by(:token => params[:token])
+      respond_to do |format|
+      if  @bank
+        if  @bank.token == params[:token]
+          @bank.token = SecureRandom.hex
+          if @bank.save
+
+            @output = OpenStruct.new( :newToken => @bank.token  ,:status => 200 ,:message =>"REQUEST SUCCESSFUL")
+             format.json { render json: @output }
+          end
+            #bank=banks.where(:token =>"32147").limit(20)
+         end 
+      else 
+          @getTransactionError = OpenStruct.new(:status => 402, :message => "ACCESS DENIED")
+          format.json { render json: @getTransactionError , status: :unprocessable_entity }
+              end
+        end
+      end  
+     
+  private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_bank
       @bank = Bank.find(params[:id])

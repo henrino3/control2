@@ -20,12 +20,16 @@ Rails.application.routes.draw do
   resources :banks
   resources :transactions
   resources :citizen_bank_data
+
   #transaction access by banks
   get '/transaction/get', to: 'banks#getTransactionApi'
   post '/transaction/post', to: 'transactions#postTransactionApi'
 
-  get  '/citizen/get' , to: 'citizen#getcitizen'
-  post  '/citizen/post' , to:'citizen#postcitizen'
+  get  '/citizen/get' , to: 'citizen_bank_data#getcitizen'
+  post  '/citizen/post' , to:'citizens#postcitizen'
+  
+  #change Token
+  get  '/tokengen' , to:'banks#genToken'
 
   
 

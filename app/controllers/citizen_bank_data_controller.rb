@@ -29,19 +29,19 @@ class CitizenBankDataController < ApplicationController
     @bank =Bank.find_by(:token => params[:token])
     @citizen_bank_datum = CitizenBankDatum.new(citizen_bank_datum_params)
     respond_to do |format|
-    if @bank
-      if @bank.token == params[:token]
+      if @bank
+        if @bank.token == params[:token]
           if @citizen_bank_datum.save
             format.html { redirect_to @citizen_bank_datum, notice: 'Citizen bank datum was successfully created.' }
             format.json { render :show, status: :created, location: @citizen_bank_datum }
-            end      
+          end      
         else
           format.html { render :new }
           format.json { render json: @citizen_bank_datum.errors, status: :unprocessable_entity }
         end
+      end
     end
   end
-end
 
   # PATCH/PUT /citizen_bank_data/1
   # PATCH/PUT /citizen_bank_data/1.json
@@ -67,7 +67,26 @@ end
     end
   end
 
-  private
+
+  def getcitizen 
+     #fetch data pertaining to that bank
+     @bank = Bank.find_by(:token => params[:token])
+     respond_to do |format|
+      if  @bank
+        if  @bank.token == params[:token]
+            #bank=banks.where(:token =>"32147").limit(20)
+            @citizens=@bank.citizen_bank_data 
+            @output = OpenStruct.new( :transactions => @bank.transactions.where(:citizen_id => params[:citizen_id]),:status => 200 ,:message =>"REQUEST SUCCESSFUL")
+            format.json { render json: @output }
+          end 
+        else 
+          @getTransactionError = OpenStruct.new(:status => 402, :message => "ACCESS DENIED")
+          format.json { render json: @getTransactionError , status: :unprocessable_entity }
+        end
+      end
+    end
+    
+      private
     # Use callbacks to share common setup or constraints between actions.
     def set_citizen_bank_datum
       @citizen_bank_datum = CitizenBankDatum.find(params[:id])
