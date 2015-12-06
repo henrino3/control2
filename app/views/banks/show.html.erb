@@ -1,5 +1,30 @@
 
+ <div id="tran" style="width:100%" class="modal " role="dialog">
+              <div class="modal-dialog" >
 
+                <!-- Modal content-->
+                <div class="modal-content">
+
+                  <div class="modal-body">
+                  <thead>
+                         <tr>
+          
+          <th>Transaction Type</th>
+          <th>Transaction Amount</th>
+          <th>Account Balance</th>
+          <th>Transaction Date</th>
+        </tr>
+      </thead>
+      <tbody class=\"searchable\">
+        <div id="mod-data"></div>
+    
+      </tbody>
+   </table>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
 <div id="wrapper">
 
   <!-- Sidebar -->
@@ -148,7 +173,7 @@
            <%= citizenbio= Citizen.find_by(:id => citizen.citizen_id ) %>
          </div>
          <td><%= count=count+1 %> </td>
-         <td><%= citizenbio.name %></td>
+         <td data-toggle="modal" data-target="#tran" onclick="transaction(<%= citizen.id %> ,'<%= @bank.token %>')"><%= citizenbio.name %></td>
          <td><%= citizen.account_id %></td>
          <td><%= citizenbio.transactions.last.transaction_amount %></td>
          <td><%= citizenbio.transactions.last.account_balance %></td>
@@ -275,5 +300,6 @@
             </div>
 
           </center>
-          <script type="text/javascript">init();</script>
+          <script type="text/javascript">init();
+       </script>
 

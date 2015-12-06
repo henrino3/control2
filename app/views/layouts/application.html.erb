@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <title>Control</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -61,38 +62,33 @@
   </div>
 </div>
 <script type="text/javascript">
+
 $('#myModal').modal('show');
 
 setTimeout(function close(){
 	$('#myModal').modal('hide');
 }, 2000);
 </script>
-<style type="text/css">
-	.modal-backdrop
-{
-    opacity:0 !important;
-}
 
-!important prevents it from being overridden
-</style>
 
 
 <% end %>
 <% if alert %>
 <div id="myModal"style="width:40%;height:40%;" class="modal " role="dialog">
-  <div class="modal-dialog" style="width:10%" >
+  <div class="modal-dialog" style="width:50%" >
 
     <!-- Modal content-->
     <div class="modal-content" style="background-color:red">
       
       <div class="modal-body">
-        <p><<center><font size="5" color="white"><%= alert %></font></center></p>
+        <p><center><font size="5" color="white"><%= alert %></font></center></p>
       </div>
      </div>
 
   </div>
 </div>
 <script type="text/javascript">
+
 $('#myModal').modal('show');
 
 setTimeout(function close(){
@@ -138,3 +134,11 @@ setTimeout(function close(){
 
 </body>
 </html>
+<style type="text/css">
+  .modal-backdrop
+{
+    opacity:0 !important;
+}
+
+!important prevents it from being overridden
+</style>  

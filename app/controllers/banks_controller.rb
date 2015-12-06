@@ -70,7 +70,7 @@ class BanksController < ApplicationController
       if  @bank
         if  @bank.token == params[:token]
             #bank=banks.where(:token =>"32147").limit(20)
-            @transactions = OpenStruct.new(:bank => @bank , :transactions => @bank.transactions ,:status => 200 ,:message =>"REQUEST SUCCESSFUL")
+            @transactions = OpenStruct.new( :transactions => @bank.transactions ,:status => 200 ,:message =>"REQUEST SUCCESSFUL")
             format.json { render json: @transactions }
           end 
         else 
@@ -84,9 +84,6 @@ class BanksController < ApplicationController
     #post postTransaction 
 
 
-    private
-
-      end  
   def genToken
     #fetch data pertaining to that bank
       @bank = Bank.find_by(:token => params[:token])
@@ -99,7 +96,7 @@ class BanksController < ApplicationController
             @output = OpenStruct.new( :newToken => @bank.token  ,:status => 200 ,:message =>"REQUEST SUCCESSFUL")
              format.json { render json: @output }
           end
-            #bank=banks.where(:token =>"32147").limit(20)
+              #bank=banks.where(:token =>"32147").limit(20)
          end 
       else 
           @getTransactionError = OpenStruct.new(:status => 402, :message => "ACCESS DENIED")
@@ -109,7 +106,7 @@ class BanksController < ApplicationController
       end  
      
   private
-
+  
     # Use callbacks to share common setup or constraints between actions.
     def set_bank
       @bank = Bank.find(params[:id])
@@ -120,5 +117,4 @@ class BanksController < ApplicationController
       params.require(:bank).permit(:name, :bank_type, :registration_no, :founded_data, :main_service, :bank_email, :bank_website, :bank_logo_url, :token)
     end
 
-    
-  end
+  end   

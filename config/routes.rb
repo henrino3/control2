@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   #change Token
   get  '/tokengen' , to:'banks#genToken'
 
+
   
 
 
