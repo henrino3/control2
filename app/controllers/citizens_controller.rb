@@ -3,8 +3,11 @@ class CitizensController < ApplicationController
   before_action :authenticate_admin!
   # GET /citizens
   # GET /citizens.json
+
   def index
     @citizens = Citizen.all
+    #check_bank
+    render layout: false
   end
 
   # GET /citizens/1
@@ -67,6 +70,10 @@ class CitizensController < ApplicationController
     @bank.save
   end
 
+  # def check_bank
+  #   @data  = @citizen.citizen_bank_data
+  #   @bank_id = @data.find_by(citizen_id: @citizen).bank_id
+  # end
   
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -267,11 +267,13 @@
 
             <!-- dashboard end -->
             <div style="display:none">
-
+            <% if @bank.transactions.count == 0 %>
+                <%= %>
+            <% else %>
               <%= @K = @bank.transactions %>
               <%= @f=@K.first%>
               <%= @f.id%>
-
+            <% end %>
             </div>
 
           </center>

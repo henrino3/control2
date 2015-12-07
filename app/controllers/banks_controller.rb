@@ -1,11 +1,14 @@
 class BanksController < ApplicationController
   before_action :set_bank, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_bank!
-
+  before_action :authenticate_admin!
+  before_action :authenticate_bank!, except: [:display]
+  
   # GET /banks
   # GET /banks.json
   def index
-    @banks = Bank.all
+    # @banks = Bank.all
+    redirect_to root_path
+    #render layout: false
   end
 
   # GET /banks/1
@@ -13,6 +16,12 @@ class BanksController < ApplicationController
   def show
   end
 
+  def display
+    @banks = Bank.all
+    render :template => "banks/index", layout: false
+
+
+  end
   # GET /banks/new
   def new
     @bank = Bank.new
@@ -119,6 +128,3 @@ class BanksController < ApplicationController
     def bank_params
       params.require(:bank).permit(:name, :bank_type, :registration_no, :founded_data, :main_service, :bank_email, :bank_website, :bank_logo_url, :token)
     end
-
-    
-  end
