@@ -67,15 +67,14 @@ xhr.send("");
 }
 
 function transaction(id,token){
-	console.log("transactionlog");
 	request(function(jsondata){
 		object= JSON.parse(jsondata);
 		var data=object.table.transactions;
 		for(i=0 ; data.length>i ;i++){
 			imediateData=data[i];
-            if(imediateData.citizen_id === id ){
-           
-			$("#mod-data").html("<tr><td>"+imediateData.transaction_name+"</td><td >"+imediateData.transaction_amount+"</td>  <td>"+imediateData.account_balance+"</td> <td>"+imediateData.updated_at+"</td></tr>");	
+			if(imediateData.citizen_id === id ){
+
+				$("#mod-data").html("<tr><td>"+imediateData.transaction_name+"</td><td >"+imediateData.transaction_amount+"</td>  <td>"+imediateData.account_balance+"</td> <td>"+imediateData.updated_at+"</td></tr>");	
 			}
 		}
 
@@ -83,6 +82,19 @@ function transaction(id,token){
 
 }
 
+	function changeToken(oldToken){
+		if (confirm('Are you sure you want to change your current token?')) {
+			request(function(jsondata){
+				object=JSON.parse(jsondata);
+				console.log("changeToken function called,Results:"+object.table.newToken);
+				$(".ctoken").html(object.table.newToken);
+			},"GET","/tokengen.json?token="+oldToken)
+		} else {
+			console.log("token change ignored");
+		}
+	}
 
 
+
+	
 

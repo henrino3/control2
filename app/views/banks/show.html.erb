@@ -55,9 +55,6 @@
   <br><br>
   <div style="margin-top:10%" id="dashboard" class="dashboard"><center>
 
-    <html>
-    <head>
-      <title>Highcharts Tutorial</title>
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
       <script src="http://code.highcharts.com/highcharts.js"></script>  
     </head>
@@ -66,14 +63,14 @@
       <script language="JavaScript">
         $(document).ready(function() {  
          var title = {
-          text: 'Combination chart'   
+          text: 'Transaction Frequency'   
         };
         var xAxis = {
-          categories: ['Apples', 'Oranges', 'Pears', 'Bananas', 'Plums']
+          categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May' ,'Jun','Jul','Aug' ,'Sep','Oct','Nov','Dec']
         };
         var labels = {
           items: [{
-           html: 'Total fruit consumption',
+           html: 'Transactionn Ratio',
            style: {
              left: '50px',
              top: '18px',
@@ -83,15 +80,11 @@
        };
        var series= [{
         type: 'column',
-        name: 'Jane',
+        name: 'Debit',
         data: [3, 2, 1, 3, 4]
       }, {
         type: 'column',
-        name: 'John',
-        data: [2, 3, 5, 7, 6]
-      }, {
-        type: 'column',
-        name: 'Joe',
+        name: 'credit',
         data: [4, 3, 3, 9, 0]
       }, {
         type: 'spline',
@@ -109,10 +102,6 @@
           name: 'Jane',
           y: 13,
                 color: Highcharts.getOptions().colors[0] // Jane's color
-              }, {
-                name: 'John',
-                y: 23,
-                color: Highcharts.getOptions().colors[1] // John's color
               }, {
                 name: 'Joe',
                 y: 19,
@@ -225,9 +214,10 @@
                             <center>
 
 
-                              <font size="4"><strong>Token: </strong><%= @bank.token %></font></center></p>
+                              <font size="4"><strong>Token</strong><div class="ctoken"><%= @bank.token %></div></font></center></p>
                               <a href="#" data-toggle="modal" data-target="#docs">View Api Documentation</a>
-                              <button class="btn btn-default pull-right">Generate New</button>
+                              <button class="btn btn-default pull-right" onclick="changeToken('<%= @bank.token %>')">Generate New</button>
+                              <br><small><font color="red"><b>Please keep your token safe</b></font></small></div></small>
                             </p>
                           </div></div></td>
                           <td><div class="panel panel-default">
