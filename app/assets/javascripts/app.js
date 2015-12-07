@@ -1,4 +1,9 @@
 
+/*
+File contains common fucntions used by most pages in the application 
+Eddymens
+
+*/
 $(document).ready(function () {
 
 	(function ($) {
@@ -17,16 +22,16 @@ $(document).ready(function () {
 
 });
 
-//baknk fade effect
+//bank fade effect
 
 function bankPage(option){
-	if(option == "dashboard"){
+	if(option === "dashboard"){
 		$("#dashboard").show();
 		$("#accounts").hide();
 		$("#profile").hide();
 
 	}
-	else if (option == "accounts"){
+	else if (option === "accounts"){
 		$("#accounts").show();
 		$("#dashboard").hide();
 		$("#profile").hide();
@@ -44,7 +49,7 @@ function init(){
 	$("#profile").hide();
 }
 
-
+//request function for making ajax call
 function request(callback,method,url){
 	var xhr = new XMLHttpRequest();
 	xhr.withCredentials = true;
@@ -66,15 +71,17 @@ function request(callback,method,url){
 xhr.send("");
 }
 
-function transaction(id,token){
-	request(function(jsondata){
+//function for getting transactions of citizens
+function transaction(id,token) {
+	request(function (jsondata) {
 		object= JSON.parse(jsondata);
 		var data=object.table.transactions;
 		for(i=0 ; data.length>i ;i++){
 			imediateData=data[i];
 			if(imediateData.citizen_id === id ){
 
-				$("#mod-data").html("<tr><td>"+imediateData.transaction_name+"</td><td >"+imediateData.transaction_amount+"</td>  <td>"+imediateData.account_balance+"</td> <td>"+imediateData.updated_at+"</td></tr>");	
+				$("#mod-data").html("<tr><td>"+imediateData.transaction_name+"</td><td >"+imediateData.transaction_amount+"</td> <td>"
+					+imediateData.account_balance+"</td> <td>"+imediateData.updated_at+"</td></tr>");	
 			}
 		}
 
@@ -82,19 +89,20 @@ function transaction(id,token){
 
 }
 
-	function changeToken(oldToken){
-		if (confirm('Are you sure you want to change your current token?')) {
-			request(function(jsondata){
-				object=JSON.parse(jsondata);
-				console.log("changeToken function called,Results:"+object.table.newToken);
-				$(".ctoken").html(object.table.newToken);
-			},"GET","/tokengen.json?token="+oldToken)
-		} else {
-			console.log("token change ignored");
-		}
+//change token of banks
+function changeToken(oldToken) {
+	if (confirm('Are you sure you want to change your current token?')) {
+		request(function (jsondata) {
+			object=JSON.parse(jsondata);
+			console.log("changeToken function called,Results:"+object.table.newToken);
+			$(".ctoken").html(object.table.newToken);
+		},"GET","/tokengen.json?token="+oldToken)
+	} else {
+		console.log("token change ignored");
 	}
+}
 
 
 
-	
+
 
