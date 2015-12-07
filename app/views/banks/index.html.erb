@@ -33,6 +33,8 @@
                 <p class="text-muted"><%= bank.registration_no %></p>
                 <p class="text-muted"><%= bank.email %></p>
                 <p class="text-muted"><%= bank.bank_website %></p>
+                <td><%= link_to 'View Transactions', {:controller => :banks, :action => :getTransactions, :bank => bank}, class: "pull-left"%></td>
+                <td><%= link_to 'View Customers', {:controller => :banks, :action => :getCustomers, :bank => bank}, class: "pull-right"%></td>
               </div>
               <div class="clearfix"></div>
             </div>

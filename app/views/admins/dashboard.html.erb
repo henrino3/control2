@@ -63,7 +63,7 @@
       </div>
       <div class="text-right">
           <h3 class="text-dark"><b class="counter"><%= @number_of_transactions %></b></h3>
-          <p class="text-muted">Transactions</p>
+         <%= link_to "Transactions", transactions_path, class: "text-muted" %>
       </div>
       <div class="clearfix"></div>
   </div>
