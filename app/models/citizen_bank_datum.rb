@@ -1,4 +1,4 @@
 class CitizenBankDatum < ActiveRecord::Base
   belongs_to :citizen
-  belongs_to :banks
+  belongs_to :bank
 end

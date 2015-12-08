@@ -1,14 +1,14 @@
 
- <div id="tran" style="width:100%" class="modal " role="dialog">
-              <div class="modal-dialog" >
+<div id="tran" style="width:100%" class="modal " role="dialog">
+  <div class="modal-dialog" >
 
-                <!-- Modal content-->
-                <div class="modal-content">
+    <!-- Modal content-->
+    <div class="modal-content">
 
-                  <div class="modal-body">
-                  <thead>
-                         <tr>
-          
+      <div class="modal-body">
+        <thead>
+         <tr>
+
           <th>Transaction Type</th>
           <th>Transaction Amount</th>
           <th>Account Balance</th>
@@ -17,16 +17,15 @@
       </thead>
       <tbody class=\"searchable\">
         <div id="mod-data"></div>
-    
-      </tbody>
-   </table>
-                    
-                  </div>
-                </div>
-              </div>
-            </div>
-<div id="wrapper">
 
+      </tbody>
+    </table>
+
+  </div>
+</div>
+</div>
+</div>
+<div id="wrapper">
   <!-- Sidebar -->
   <div  id="sidebar-wrapper" style="background-color:#101010">
     <ul style="padding-top:100px;" class="sidebar-nav">
@@ -55,74 +54,74 @@
   <br><br>
   <div style="margin-top:10%" id="dashboard" class="dashboard"><center>
 
-      <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-      <script src="http://code.highcharts.com/highcharts.js"></script>  
-    </head>
-    <body>
-      <div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
-      <script language="JavaScript">
-        $(document).ready(function() {  
-         var title = {
-          text: 'Transaction Frequency'   
-        };
-        var xAxis = {
-          categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May' ,'Jun','Jul','Aug' ,'Sep','Oct','Nov','Dec']
-        };
-        var labels = {
-          items: [{
-           html: 'Transactionn Ratio',
-           style: {
-             left: '50px',
-             top: '18px',
-             color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
-           }
-         }]
-       };
-       var series= [{
-        type: 'column',
-        name: 'Debit',
-        data: [3, 2, 1, 3, 4]
-      }, {
-        type: 'column',
-        name: 'credit',
-        data: [4, 3, 3, 9, 0]
-      }, {
-        type: 'spline',
-        name: 'Average',
-        data: [3, 2.67, 3, 6.33, 3.33],
-        marker: {
-          lineWidth: 2,
-          lineColor: Highcharts.getOptions().colors[3],
-          fillColor: 'white'
-        }
-      }, {
-        type: 'pie',
-        name: 'Total consumption',
-        data: [{
-          name: 'Jane',
-          y: 13,
-                color: Highcharts.getOptions().colors[0] // Jane's color
-              }, {
-                name: 'Joe',
-                y: 19,
-                color: Highcharts.getOptions().colors[2] // Joe's color
-              }],
-              center: [100, 80],
-              size: 100,
-              showInLegend: false,
-              dataLabels: {
-                enabled: false
-              }
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>  
+  </head>
+  <body>
+    <div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
+    <script language="JavaScript">
+      $(document).ready(function() {  
+       var title = {
+        text: 'Transaction Frequency'   
+      };
+      var xAxis = {
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May' ,'Jun','Jul','Aug' ,'Sep','Oct','Nov','Dec']
+      };
+      var labels = {
+        items: [{
+         html: 'Transactionn Ratio',
+         style: {
+           left: '50px',
+           top: '18px',
+           color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+         }
+       }]
+     };
+     var series= [{
+      type: 'column',
+      name: 'Debit',
+      data: [3, 2, 1, 3, 4]
+    }, {
+      type: 'column',
+      name: 'credit',
+      data: [4, 3, 3, 9, 0]
+    }, {
+      type: 'spline',
+      name: 'Average',
+      data: [3, 2.67, 3, 6.33, 3.33],
+      marker: {
+        lineWidth: 2,
+        lineColor: Highcharts.getOptions().colors[3],
+        fillColor: 'white'
+      }
+    }, {
+      type: 'pie',
+      name: 'Total consumption',
+      data: [{
+        name: 'Jane',
+        y: 13,
+              color: Highcharts.getOptions().colors[0] // Jane's color
+            }, {
+              name: 'Joe',
+              y: 19,
+              color: Highcharts.getOptions().colors[2] // Joe's color
+            }],
+            center: [100, 80],
+            size: 100,
+            showInLegend: false,
+            dataLabels: {
+              enabled: false
             }
-            ];     
+          }
+          ];     
 
-            var json = {};   
-            json.title = title;   
-            json.xAxis = xAxis;
-            json.labels = labels;  
-            json.series = series;
-            $('#container').highcharts(json);  
-          });
+          var json = {};   
+          json.title = title;   
+          json.xAxis = xAxis;
+          json.labels = labels;  
+          json.series = series;
+          $('#container').highcharts(json);  
+        });
 </script>
 </body>
 </html>
@@ -249,17 +248,17 @@
                 <div class="modal-content">
 
                   <div class="modal-body">
-                      <pre>
-                        <p>This is the API documentation for the Control Suite. Step-by-step instructions of how you can interface with our API to get the best result.
+                    <pre>
+                      <p>This is the API documentation for the Control Suite. Step-by-step instructions of how you can interface with our API to get the best result.
                         There are a couple of things you can accomplish with our API and they are as follows:</p> 
-                          <u>Token: <%= @bank.token %></u>
-                          <ol>
-                            <li>Get Transactions i.e Retrieve transactions that are related to your bank</li>
-                            <li>Post Transactions i.e Push transactions pertaining to your bank onto the control suite platform</li>
-                            <li>Get Users</li>
-                            <li>Create Users</li>
-                          </ol>
-                        
+                        <u>Token: <%= @bank.token %></u>
+                        <ol>
+                          <li>Get Transactions i.e Retrieve transactions that are related to your bank</li>
+                          <li>Post Transactions i.e Push transactions pertaining to your bank onto the control suite platform</li>
+                          <li>Get Users</li>
+                          <li>Create Users</li>
+                        </ol>
+
                         <u>Get transactions</u>
                         http://localhost:3000/transactions.json
                         {code here}
@@ -274,22 +273,24 @@
                         {code here}
 
                       </pre>
-                    
+
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <!-- dashboard end -->
-            <div style="display:none">
+              <!-- dashboard end -->
+              <div style="display:none">
+                <% if @bank.transactions.count == 0 %>
+                <%= %>
+                <% else %>
+                <%= @K = @bank.transactions %>
+                <%= @f=@K.first%>
+                <%= @f.id%>
+                <% end %>
+              </div>
 
-              <%= @K = @bank.transactions %>
-              <%= @f=@K.first%>
-              <%= @f.id%>
-
-            </div>
-
-          </center>
-          <script type="text/javascript">init();
-       </script>
+            </center>
+            <script type="text/javascript">init();
+            </script>
 

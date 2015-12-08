@@ -1,0 +1,35 @@
+  		<!-- ========== Left Sidebar Start ========== -->
+
+  		<div class="left side-menu">
+  			<div class="sidebar-inner slimscrollleft">
+  				<!--- Divider -->
+  				<div id="sidebar-menu">
+  					<ul>
+
+  						<li class=" menu-title text-muted">Navigation</li>
+
+  						<li class="has_sub">
+  							<!-- <a href="#" class="waves-effect active"><i class="ti-home"></i> <span> Dashboard </span> </a> -->
+                <%= link_to "Dashboard", controller: "admins", action: "index" %>
+              </li>
+
+              <li class="has_sub">
+               <i class="ti-paint-bucket"></i>
+               <%= link_to "Citizens", controller: "citizens", action: "index" %>
+               <%#= redirect_to url_for(:controller => :citizens, :action => :index) %>
+             </li>
+
+             <li class="has_sub">
+              <%= link_to "Banks", controller: "banks", action: "display" %>
+            </li>
+
+            <li class="has_sub">
+              <%= link_to "Transactions", controller: "transactions", action: "index" %>
+            </li>
+          </ul>
+          <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  			<!-- Left Sidebar End -->

@@ -1,6 +1,6 @@
 class Banks::SessionsController < Devise::SessionsController
 # before_filter :configure_sign_in_params, only: [:create]
-
+    layout false, only: [:new]
   # GET /resource/sign_in
   # def new
   #   super
@@ -12,9 +12,10 @@ class Banks::SessionsController < Devise::SessionsController
   # end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  def destroy
+    super
+    reset_session
+  end
 
   # protected
 
@@ -25,5 +26,5 @@ class Banks::SessionsController < Devise::SessionsController
 
   def after_sign_in_path_for(resource)
       bank_path(@bank)
-  end
+  end 
 end

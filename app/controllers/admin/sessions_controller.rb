@@ -12,9 +12,10 @@ class Admin::SessionsController < Devise::SessionsController
   # end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  def destroy
+    super
+    reset_session
+  end
 
   # protected
 
@@ -24,6 +25,6 @@ class Admin::SessionsController < Devise::SessionsController
   # end
 
   def after_sign_in_path_for(resource)
-    citizens_path 
+    admins_path
   end
 end
