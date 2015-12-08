@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get '/transaction/get', to: 'banks#getTransactionApi'
   post '/transaction/post', to: 'transactions#postTransactionApi'
 
-  get  '/citizen/get' , to: 'citizen_bank_data#getcitizen'
+  get  '/citizen/get' , to: 'citizen_bank_data#getCitizen'
   post  '/citizen/post' , to:'citizens#postcitizen'
   
   #change Token

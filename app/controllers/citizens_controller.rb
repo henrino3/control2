@@ -1,9 +1,9 @@
 class CitizensController < ApplicationController
-  before_action :set_citizen, only: [:show, :edit, :update, :destroy]
+  before_action :set_citizen, only: [:show, :edit, :update, :destroy ,:banks_list]
   before_action :authenticate_admin!
+  
 # GET /citizens
 # GET /citizens.json
-
 def index
   @citizens = Citizen.all
   #check_bank
@@ -86,10 +86,6 @@ def genToken
   @bank.save
 end
 
-# def check_bank
-#   @data  = @citizen.citizen_bank_data
-#   @bank_id = @data.find_by(citizen_id: @citizen).bank_id
-# end
 
 private
   # Use callbacks to share common setup or constraints between actions.

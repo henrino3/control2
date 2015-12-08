@@ -6,9 +6,8 @@ class BanksController < ApplicationController
 # GET /banks
 # GET /banks.json
 def index
-  # @banks = Bank.all
-  redirect_to root_path
-  #render layout: false
+# @banks = Bank.all
+redirect_to root_path
 end
 
 # GET /banks/1
@@ -100,63 +99,60 @@ def destroy
   respond_to do |format|
     format.html { redirect_to banks_url, notice: 'Bank was successfully destroyed.' }
     format.json { head :no_content }
-  end
 end
+
 #get all transactions related to a bank 
 #get getTransaction
 def getTransactionApi
-  #fetch data pertaining to that bank
-  @bank = Bank.find_by(:token => params[:token])
-  respond_to do |format|
-    if  @bank
-      if  @bank.token == params[:token]
-          #bank=banks.where(:token =>"32147").limit(20)
-          @transactions = OpenStruct.new(:bank => @bank , :transactions => @bank.transactions ,:status => 200 ,:message =>"REQUEST SUCCESSFUL")
-          format.json { render json: @transactions }
-        end 
-      else 
-        @getTransactionError = OpenStruct.new(:status => 402, :message => "ACCESS DENIED")
-        format.json { render json: @getTransactionError , status: :unprocessable_entity }
-      end
+#fetch data pertaining to that bank
+@bank = Bank.find_by(:token => params[:token])
+respond_to do |format|
+  if  @bank
+    if  @bank.token == params[:token]
+      #bank=banks.where(:token =>"32147").limit(20)
+      @transactions = OpenStruct.new( :transactions => @bank.transactions ,:status => 200 ,:message =>"REQUEST SUCCESSFUL")
+      format.json { render json: @transactions }
+    end 
+  else 
+    @getTransactionError = OpenStruct.new(:status => 402, :message => "ACCESS DENIED")
+    format.json { render json: @getTransactionError , status: :unprocessable_entity }
+  end
 
-    end
-  end  
-  #post transactions to the transaction log 
-  #post postTransaction 
-
-
-  private
-
+end
 end  
+#post transactions to the transaction log 
+#post postTransaction 
+
+
 def genToken
-  #fetch data pertaining to that bank
-  @bank = Bank.find_by(:token => params[:token])
-  respond_to do |format|
-    if  @bank
-      if  @bank.token == params[:token]
-        @bank.token = SecureRandom.hex
-        if @bank.save
-
-          @output = OpenStruct.new( :newToken => @bank.token  ,:status => 200 ,:message =>"REQUEST SUCCESSFUL")
-          format.json { render json: @output }
-        end
-          #bank=banks.where(:token =>"32147").limit(20)
-        end 
-      else 
-        @getTransactionError = OpenStruct.new(:status => 402, :message => "ACCESS DENIED")
-        format.json { render json: @getTransactionError , status: :unprocessable_entity }
+#fetch data pertaining to that bank
+@bank = Bank.find_by(:token => params[:token])
+respond_to do |format|
+  if @bank
+    if @bank.token == params[:token]
+      @bank.token = SecureRandom.hex
+      if @bank.save
+        @output = OpenStruct.new( :newToken => @bank.token  ,:status => 200 ,:message =>"REQUEST SUCCESSFUL")
+        format.json { render json: @output }
       end
-    end
-  end  
-  
-  private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_bank
-    @bank = Bank.find(params[:id])
+    end 
+  else 
+    @getTransactionError = OpenStruct.new(:status => 402, :message => "ACCESS DENIED")
+    format.json { render json: @getTransactionError , status: :unprocessable_entity }
   end
+end
+end 
 
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def bank_params
-    params.require(:bank).permit(:name, :bank_type, :registration_no, :founded_data, :main_service, :bank_email, :bank_website, :bank_logo_url, :token)
-  end
+private
+
+# Use callbacks to share common setup or constraints between actions.
+def set_bank
+  @bank = Bank.find(params[:id])
+end
+
+# Never trust parameters from the scary internet, only allow the white list through.
+def bank_params
+  params.require(:bank).permit(:name, :bank_type, :registration_no, :founded_data, :main_service, :bank_email, :bank_website, :bank_logo_url, :token)
+end
+end
+end 
