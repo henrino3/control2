@@ -5,7 +5,7 @@ class CitizensController < ApplicationController
 # GET /citizens
 # GET /citizens.json
 def index
-  @citizens = Citizen.all
+  @citizens = Citizen.order("id DESC").all
   #check_bank
   render layout: true
 end

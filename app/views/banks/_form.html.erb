@@ -1,57 +1,129 @@
-<%= form_for(@bank) do |f| %>
-  <% if @bank.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@bank.errors.count, "error") %> prohibited this bank from being saved:</h2>
 
-      <ul>
-      <% @bank.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+                 
 
-  <div class="input-group">
-    <%= f.label :name %><br>
-    <%= f.text_field :name  , :class =>"form-control input-lg" , :placeholder =>"Bank name" %>
-  </div>
-  <div >
-</div>
-  <div class="field">
-    <%= f.label :bank_type %><br>
-    <%= f.text_field :bank_type , :class =>"form-control input-lg" , :placeholder =>"Bank type" %>
-  </div>
-  <div class="field">
-    <%= f.label :registration_no %><br>
-    <%= f.text_field :registration_no , :class =>"form-control input-lg" , :placeholder =>"Registration # " %>
-  </div>
-  <div class="field">
-    <%= f.label :founded_data %><br>
-    <%= f.text_field :founded_data , :class =>"form-control input-lg" , :placeholder =>"founded date" , :type => "date"%>
-  </div>
-  <div class="field">
-    <%= f.label :main_service %><br>
-    <%= f.text_field :main_service , :class =>"form-control input-lg" , :placeholder =>"Bank name" %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email ,:class =>"form-control input-lg" , :placeholder =>"Bank name" %>
-  
-  </div>
-  <div class="field">
-    <%= f.label :bank_website %><br>
-    <%= f.text_field :bank_website , :class =>"form-control input-lg" , :placeholder =>"Bank website" %>
-  </div>
-  <!--
-  <div class="field">
-    <%= f.label :bank_logo_url %><br>
-    <%= f.text_field :bank_logo_url %>
-  </div>-->
-<!--  <div class="field">
-    <%= f.label :token %><br>
-    <%= f.text_field :token %>
-  </div>-->
-  <div class="actions">
-    <%= f.submit :class => "btn btn-default pull-right", :value =>"Update Profile"%>
-  </div>
-<% end %>
+                  <%= form_for(@bank) do |f| %>
+                    <% if @bank.errors.any? %>
+                      <div id="error_explanation">
+                        <h2><%= pluralize(@bank.errors.count, "error") %> prohibited this bank from being saved:</h2>
+
+                        <ul>
+                        <% @bank.errors.full_messages.each do |message| %>
+                          <li><%= message %></li>
+                        <% end %>
+                        </ul>
+                      </div>
+                    <% end %>
+
+                        
+        
+                        <div class="panel-body">
+                          <div class="row">
+                                <div class="col-lg-6">
+                                <h3></h3>
+                                </div>                             
+                         </div>
+
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="p-20">
+                                        
+                                           <div class="input-group m-t-10">
+                                                  <%= f.text_field :name, autofocus: true, :class=>"form-control", :placeholder=>"Name" %>
+                                                <span class="input-group-addon"><i class="md  md-account-circle"></i></span>
+                                              </div>
+                    
+
+                    
+                                            <div class="input-group m-t-10">
+                                                  <%= f.email_field :email, autofocus: true, :class=>"form-control", :placeholder=>"Email" %>
+                                                <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+                                              </div>
+
+
+                                                                
+                                            <div class="input-group m-t-10">
+                                            <i>(leave blank if you don't want to change it)</i>
+                                            <%= f.password_field :password, autocomplete: "off", :class=>"form-control", :placeholder=>"Password"%>
+                                                <span class="input-group-addon"><i class="md md-vpn-key"></i></span>
+                                              </div>
+
+                                                                
+                                            <div class="input-group m-t-10">
+                                                <%= f.password_field :password_confirmation, autocomplete: "off", :class=>"form-control", :placeholder=>"Password Confirmation"%>
+                                                <span class="input-group-addon"><i class="md md-vpn-key"></i></span>
+                                              </div>
+
+                                           
+                    
+                                            <div class="input-group m-t-10">
+                                                  <%= f.text_field :registration_no, autofocus: true, :class=>"form-control", :placeholder=>"Registration No" %>
+                                                <span class="input-group-addon"><i class="md md-settings-cell"></i></span>
+                                              </div>
+                    
+                                            <div class="input-group m-t-10">
+                                                  <%= f.text_field :bank_website, autofocus: true, :class=>"form-control", :placeholder=>"Website Address" %>
+                                                <span class="input-group-addon"><i class="md md-public"></i></span>
+                                              </div>
+                                            
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="col-lg-6">
+                                    <div class="p-20">                                            
+                                            <div class="form-group ">
+                                                <div class="col-xs-12">
+                                                        <%= f.select(:bank_type, 
+                                                          options_for_select([
+                                                            ["Bank Type", ], 
+                                                            ["Commercial Bank", "Commercial Bank"], 
+                                                            ["Community Bank", "Community Bank"], 
+                                                            ["Mortgate Bank", "Mortgate Bank"]
+                                                            ]), {}, { :class => "form-control"})
+                                                        %>
+                                                </div>
+                                            </div>
+                    
+                                            <div class="input-group m-t-10">
+                                                  <%= f.text_field :founded_data, autofocus: true, :class=>"form-control", :placeholder=>"Founded " %>
+                                                <span class="input-group-addon"><i class="md md-star"></i></span>
+                                              </div>
+
+                                        <div class="form-group m-t-10">
+                                            <input type="file" class="filestyle" data-placeholder="No file" id="filestyle-9" tabindex="-1" style="position: absolute; clip: rect(0px 0px 0px 0px);">
+                                            <div class="bootstrap-filestyle input-group">
+                                               <input type="text" class="form-control " style="margin-left:8px"      placeholder="No file" disabled="">  <span class="group-span-filestyle input-group-btn" tabindex="0">
+                                                   <label for="filestyle-9" class="btn btn-default ">
+                                                   <span class="md md-folder-open"></span> 
+                                                   <span class="buttonText">Upload Bank Logo</span></label></span></div>
+                                                    </div>
+
+                                            <div class="input-group m-t-10">
+                                                 <i>(we need your current password to confirm your changes)</i><br />
+                                                  <%= f.password_field :current_password, autocomplete: "off", :class=>"form-control", :placeholder=>"Current Passwords "  %>
+                                                <span class="input-group-addon"><i class="md md-star"></i></span>
+                                              </div>
+
+
+
+
+                    
+                                            <div class="form-group text-right m-t-20 m-b-0">
+                                                <div class="col-xs-12" style="margin-top:20px">
+                                                    <button class="btn btn-primary text-uppercase waves-effect waves-light w-sm" type="submit">
+                                                       Update 
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            
+                                       
+
+                                    </div>
+                                </div>
+                              
+
+                            </div>
+                            
+                        </div>
+                    <% end %>
