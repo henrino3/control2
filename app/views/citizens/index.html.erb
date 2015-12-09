@@ -1,116 +1,111 @@
-       <!-- Begin page -->
-        <div id="wrapper">
+     <!-- Begin page -->
+     <div id="wrapper">
 
-              <div class="account-pages"></div>
-            <!-- Top Bar Start -->
-            <div class="topbar">              
-              <%= render 'layouts/header_public' %>
-            </div>
-  
-          
-            <!-- ========== Left Sidebar Start ========== -->
-            <div class="left side-menu">
-              <%= render 'layouts/sidebar' %>
-            </div>
-                       <!-- Left Sidebar End -->
-  
-            <!-- ============================================================== -->
-            <!-- Start right Content here -->
-            <!-- ============================================================== -->
-
-            <div class="content-page">
-                <!-- Start content -->
-                <div class="content">
-                    <div class="container">
-
-                      <!-- INJECT DASHBOARD VIEW  -->
-                                                      <!-- Page-Title -->
-                                <div class="row">
-                                   <div class="col-sm-12">
-                                      <h4 class="page-title">Admin Dashboard</h4>
-                                      <p class="text-muted page-title-alt">
-                                      Welcome 
-                                      <%= current_admin.name if current_admin %>
-                                      <%= current_bank.name if current_bank %>
-
-                                      </p>
-                                  </div>
-                              </div>
-
-
-
-                                <p id="notice"><%= notice %></p>
-                                
-                                <!-- Page-Title -->
-                                 <div class="row">
-                                  <div class="col-sm-12">
-                                    <div class="card-box">
-                                      <table id="datatable" class="table table-striped table-bordered">
-                                        <center><h1>Listing Citizens</h1></center>
-
-
-                                        <thead>
-                                          <tr>
-                                            <th>Name</th>
-                                            <th>Phone num</th>
-                                            <th>Email</th>
-                                            <th>Address</th>
-                                            <th>National Id</th>
-                                            <th>Bank</th>
-                                            <th colspan="2"></th>
-                                          </tr>
-                                        </thead>
-
-                                        <tbody>
-                                          <% @citizens.each do |citizen| %>
-                                          <tr>
-                                            <td><%= citizen.name %></td>
-                                            <td><%= citizen.phone_num %></td>
-                                            <td><%= citizen.email %></td>
-                                            <td><%= citizen.address %></td>
-                                            <td><%= citizen.national_id %></td>
-                                            <% @data = citizen.citizen_bank_data %>
-                                            <% if !@data.blank? %>
-                                              <% @bank_id = @data.find(citizen.id).bank_id %>
-                                              <td><%= Bank.find(@bank_id).name%></td>
-                                            <% else %>
-                                              <td>--------</td>
-                                            <% end %>
-                                            <!-- <td><%= link_to 'Show', citizen %></td> -->
-                                            <td><%= link_to 'Edit', edit_citizen_path(citizen) %></td>
-                                            <td><%= link_to 'View Transactions', {:controller => :citizens, :action => :getTransactions, :citizen => citizen} %></td>
-                                           <!--  <td><%#= link_to 'Destroy', citizen, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-                                          </tr>
-                                          <% end %>
-                                        </tbody>
-                                      </table>
-                                    </div>
-                                  </div>
-                                  
-                    </div> <!-- container -->
-
-                </div> <!-- content -->
-
-
-          <footer class="footer text-right">
-                   <%= render 'layouts/footer' %>
-                   
-         </footer>
-
-            </div>
-
-             <!-- Right Sidebar -->
-            <div class="side-bar right-bar nicescroll">
-
-            <!-- ============================================================== -->
-            <!-- End Right content here -->
-            <!-- ============================================================== -->
-            
-            </div>
-            <!-- /Right-bar -->
-
-        </div>
-        <!-- END wrapper -->
+      <div class="account-pages"></div>
+      <!-- Top Bar Start -->
+      <div class="topbar">              
+        <%= render 'layouts/header_public' %>
       </div>
+
+
+      <!-- ========== Left Sidebar Start ========== -->
+      <div class="left side-menu">
+        <%= render 'layouts/sidebar' %>
+      </div>
+      <!-- Left Sidebar End -->
+
+      <!-- ============================================================== -->
+      <!-- Start right Content here -->
+      <!-- ============================================================== -->
+
+      <div class="content-page">
+        <!-- Start content -->
+        <div class="content">
+          <div class="container">
+
+            <!-- INJECT DASHBOARD VIEW  -->
+            <!-- Page-Title -->
+            <div class="row">
+             <div class="col-sm-12">
+              <h2>Citizens</h2>
+              <p class="text-muted page-title-alt">Showing the <%= Citizen.count %> citizens in the system</p>
+            </div>
+          </div>
+
+
+
+          <p id="notice"><%= notice %></p>
+
+          <!-- Page-Title -->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card-box">
+                <table id="datatable" class="table table-striped table-bordered">
+                  <center><h1>Listing Citizens</h1></center>
+
+
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Phone num</th>
+                      <th>Email</th>
+                      <th>Address</th>
+                      <th>National Id</th>
+                      <th>Bank</th>
+                      <th colspan="2"></th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <% @citizens.each do |citizen| %>
+                    <tr>
+                      <td><%= citizen.name %></td>
+                      <td><%= citizen.phone_num %></td>
+                      <td><%= citizen.email %></td>
+                      <td><%= citizen.address %></td>
+                      <td><%= citizen.national_id %></td>
+                      <% @data = citizen.citizen_bank_data %>
+                      <% if !@data.blank? %>
+                      <% @bank_id = @data.find(citizen.id).bank_id %>
+                      <td><%= Bank.find(@bank_id).name%></td>
+                      <% else %>
+                      <td>--------</td>
+                      <% end %>
+                      <!-- <td><%= link_to 'Show', citizen %></td> -->
+                      <td><%= link_to 'Edit', edit_citizen_path(citizen) %></td>
+                      <td><%= link_to 'View Transactions', {:controller => :citizens, :action => :getTransactions, :citizen => citizen} %></td>
+                      <!--  <td><%#= link_to 'Destroy', citizen, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+                    </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div> <!-- container -->
+
+        </div> <!-- content -->
+
+
+        <footer class="footer text-right">
+         <%= render 'layouts/footer' %>
+
+       </footer>
+
+     </div>
+
+     <!-- Right Sidebar -->
+     <div class="side-bar right-bar nicescroll">
+
+      <!-- ============================================================== -->
+      <!-- End Right content here -->
+      <!-- ============================================================== -->
+
+    </div>
+    <!-- /Right-bar -->
+
+  </div>
+  <!-- END wrapper -->
+</div>
 
 
