@@ -17,7 +17,7 @@
   #displays the different banks in the db
   def display
     @banks = Bank.all
-    render :template => "banks/index", layout: false
+    render :template => "banks/index", layout: true
   end
   
   #method to get the transactions using the bank_id param passed
@@ -31,7 +31,7 @@
     else
       @empty = "No transactions for this bank"
     end
-    render layout: false, action: :showTransactions
+    render layout: true, action: :showTransactions
   end
   
   def showTransactions
@@ -50,7 +50,7 @@
     else
       @empty = "No customers for this bank"
     end
-    render layout: false, action: :showCustomers
+    render layout: true, action: :showCustomers
   end
   # GET /banks/new
   def new

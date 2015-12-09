@@ -3,7 +3,7 @@ class AdminsController < ApplicationController
 	before_action :set_count
 	
 	def index
-		render layout: false, action: :dashboard
+		render layout: true, action: :dashboard
 	end
 
 	def dashboard

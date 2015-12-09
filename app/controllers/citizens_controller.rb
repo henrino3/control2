@@ -7,7 +7,7 @@ class CitizensController < ApplicationController
 def index
   @citizens = Citizen.all
   #check_bank
-  render layout: false
+  render layout: true
 end
 
   # GET /citizens/1
@@ -25,7 +25,7 @@ def getTransactions
     @empty = "No transactions for this citizen"
   end
 
-  render layout: false, action: :showTransactions
+  render layout: true, action: :showTransactions
 end
 
 def showTransactions

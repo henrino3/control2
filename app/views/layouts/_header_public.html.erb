@@ -10,11 +10,12 @@
                 <!-- Button mobile view to collapse sidebar menu -->
           <div class="navbar navbar-default" role="navigation">
               <div class="container">
+
                   <div class="">
                     <ul class="nav navbar-nav navbar-right pull-right">
                       <% if current_admin %> 
-                          <li class="dropdown">
-                            <a href="" class="dropdown-toggle profile" data-toggle="dropdown" aria-expanded="true">
+                          <li class="dropdown open">
+                            <a href="javascript:void(0)" class="dropdown-toggledropdown-toggle profile" data-toggle="dropdown" aria-expanded="true">
                             <i class="ti-user m-r-5"></i> Hi <%= current_admin.name %>!</a>
                             <ul class="dropdown-menu">
                                 <li><a href="javascript:void(0)"><i class="ti-user m-r-5"></i> Dashboard</a></li>
@@ -41,3 +42,22 @@
                 <!--/.nav-collapse -->
             </div>
         </div>
+
+
+
+
+<script type="text/javascript">
+ 
+  $(function () {
+    console.log('load');
+        
+        $('.dropdown').click(function(){
+          $('.dropdown-menu').fadeToggle();
+          console.log('toggle');
+        });
+
+        
+
+  });
+
+</script>
