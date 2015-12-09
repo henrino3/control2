@@ -48,8 +48,8 @@
 
                                           <tr>  
                                             <td><%= @transaction.transaction_name %></td>
-                                            <td><%= @transaction.transaction_amount %></td>
-                                            <td><%= @transaction.account_balance %></td>
+                                            <td><%= number_to_currency(@transaction.transaction_amount, unit: "GHS ") %></td>
+                                            <td><%= number_to_currency(@transaction.account_balance, unit: "GHS ")%></td>
                                             <td><%= @bank_name %></td>
                                             <td><%= @transaction.created_at%></td>
                                           </tr>

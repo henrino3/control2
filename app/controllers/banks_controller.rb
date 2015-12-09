@@ -5,7 +5,6 @@
   # GET /banks
   # GET /banks.json
   def index
-  # @banks = Bank.all
     redirect_to root_path
   end
   
