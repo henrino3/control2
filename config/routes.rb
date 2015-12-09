@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-
-
-  root 'home_pages#index'
-
-  resources :citizens
-
   devise_for :banks,
   :controllers => {
     sessions: 'banks/sessions',
@@ -17,18 +11,26 @@ Rails.application.routes.draw do
     registrations: 'admin/registrations'
   }
   
+  resources :admins
   resources :banks
   resources :transactions
   resources :citizen_bank_data
+  resources :citizens
   #transaction access by banks
   get '/transaction/get', to: 'banks#getTransactionApi'
   post '/transaction/post', to: 'transactions#postTransactionApi'
 
-  get  '/citizen/get' , to: 'citizen#getcitizen'
-  post  '/citizen/post' , to:'citizen#postcitizen'
-
+  get  '/citizen/get' , to: 'citizen_bank_data#getCitizen'
+  post  '/citizen/post' , to:'citizens#postcitizen'
   
+  #change Token
+  get  '/tokengen' , to:'banks#genToken'
 
+  root 'home_pages#index'
+  get '/banks_display', to: 'banks#display'
+  get '/citizen_transactions', to: 'citizens#getTransactions'
+  get '/bank_transactions', to: 'banks#getTransactions'
+  get '/bank_citizens', to: 'banks#getCustomers'
 
 
   # devise_scope :admins do

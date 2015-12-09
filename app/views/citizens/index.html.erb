@@ -1,98 +1,71 @@
+<%= render 'admins/header' %>  
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Citizens</h1>
+<div id="wrapper">
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Phone num</th>
-      <th>Email</th>
-      <th>Address</th>
-      <th>National Id</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @citizens.each do |citizen| %>
-      <tr>
-        <td><%= citizen.name %></td>
-        <td><%= citizen.phone_num %></td>
-        <td><%= citizen.email %></td>
-        <td><%= citizen.address %></td>
-        <td><%= citizen.national_id %></td>
-        <td><%= link_to 'Show', citizen %></td>
-        <td><%= link_to 'Edit', edit_citizen_path(citizen) %></td>
-        <td><%= link_to 'Destroy', citizen, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
- <button class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#myModal">New Citizen</button>
-<%= link_to 'New Citizen', new_citizen_path %>
-<%= link_to 'Sign out', destroy_admin_session_path , method: :delete, data: { confirm: 'Are you sure?' } %> !
+  <!-- Top Bar Start -->
+  <%= render 'admins/topbar' %>
+  <!-- Top Bar End -->
 
 
+  <!-- LEFT SIDEBAR  -->
+
+  <%= render 'admins/left_sidebar' %>
+
+  <div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+     <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="card-box">
+            <table id="datatable" class="table table-striped table-bordered">
+              <center><h1>Listing Citizens</h1></center>
 
 
-        <div class="col-md-12">
-           <div class="card-box">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Phone num</th>
+                  <th>Email</th>
+                  <th>Address</th>
+                  <th>National Id</th>
+                  <th>Bank</th>
+                  <th colspan="2"></th>
+                </tr>
+              </thead>
 
-              <h4 class="header-title m-t-0"><b>Bootstrap Modals (default)</b></h4>
-              <p class="text-muted m-b-30 font-13">
-                      A rendered modal with header, body, and set of actions in the footer.
-               </p>
-                      
-                      <!-- sample modal content -->
-                          <div style="display: none;" id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                              <div class="modal-dialog">
-                                  <div class="modal-content">
+              <tbody>
+                <% @citizens.each do |citizen| %>
+                <tr>
+                  <td><%= citizen.name %></td>
+                  <td><%= citizen.phone_num %></td>
+                  <td><%= citizen.email %></td>
+                  <td><%= citizen.address %></td>
+                  <td><%= citizen.national_id %></td>
+                  <% @data = citizen.citizen_bank_data %>
+                  <% if !@data.blank? %>
+                    <% @bank_id = @data.find(citizen.id).bank_id %>
+                    <td><%= Bank.find(@bank_id).name%></td>
+                  <% else %>
+                    <td>--------</td>
+                  <% end %>
+                  <!-- <td><%= link_to 'Show', citizen %></td> -->
+                  <td><%= link_to 'Edit', edit_citizen_path(citizen) %></td>
+                  <td><%= link_to 'View Transactions', {:controller => :citizens, :action => :getTransactions, :citizen => citizen} %></td>
+                 <!--  <td><%#= link_to 'Destroy', citizen, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
 
-                                   <%= form_for(@citizen) do |f| %>
-                                      <div class="modal-header">
-                                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                          <h4 class="modal-title" id="myModalLabel">New Citizen</h4>
-                                      </div>
-                                      <div class="modal-body">
-                                         
-                       
 
-                             <%= f.text_field :name, autofocus: true, :class=>"form-control name", :placeholder=>"Name" %>
 
-                             <%= f.text_field :email, autofocus: true, :class=>"form-control email", :placeholder=>"E-mail" %>
+        <br>
 
-                             <%= f.text_field :phone_num, autofocus: true, :class=>"form-control phone_num", :placeholder=>"Phone Num" %>
-
-                             <%= f.text_field :address, autofocus: true, :class=>"form-control address", :placeholder=>"Address" %>
-
-                             <%= f.text_field :national_id, autofocus: true, :class=>"form-control national_id", :placeholder=>"National Id" %>
-
-                     
-                                      </div>
-                                   <div class="modal-footer">
-                                    <div class="row"> 
-                                      <div class="col-md-6">                                                  
-                                          <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button> 
-                                       </div> 
-
-                                      <div class="col-md-6"> 
-                                        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                      </div>
-
-                                    </div>
-                                     
-                                          
-                                      </div>
-                                 <% end %>
-
-                                  </div><!-- /.modal-content -->
-                              </div><!-- /.modal-dialog -->
-                          </div><!-- /.modal -->
-
-                          
-
-                   </div>
-               </div>
+       <!--  <%= link_to 'New Citizen', new_citizen_path %>
+        <%= link_to 'Sign out', destroy_admin_session_path , method: :delete, data: { confirm: 'Are you sure?' } %> !
+ -->
+        <%= render 'admins/footer'%>

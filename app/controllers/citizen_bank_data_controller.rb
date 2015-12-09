@@ -8,7 +8,7 @@ class CitizenBankDataController < ApplicationController
     @citizen_bank_data = CitizenBankDatum.all
     
   end
-
+   
   # GET /citizen_bank_data/1
   # GET /citizen_bank_data/1.json
   def show
@@ -26,23 +26,41 @@ class CitizenBankDataController < ApplicationController
   # POST /citizen_bank_data
   # POST /citizen_bank_data.json
   def create
-    @bank =Bank.find_by(:token => params[:token])
-    @citizen_bank_datum = CitizenBankDatum.new(citizen_bank_datum_params)
-    respond_to do |format|
-    if @bank
-      if @bank.token == params[:token]
+    bank =Bank.find_by(:token => params[:token])
+    citizen_bank_datum = CitizenBankDatum.new(citizen_bank_datum_params)
+      if bank != nil && params[:token] != nil
+        if @bank.token == params[:token]
           if @citizen_bank_datum.save
-            format.html { redirect_to @citizen_bank_datum, notice: 'Citizen bank datum was successfully created.' }
-            format.json { render :show, status: :created, location: @citizen_bank_datum }
-            end      
+             render :show, status: :created, location: @citizen_bank_datum 
+          end      
         else
-          format.html { render :new }
-          format.json { render json: @citizen_bank_datum.errors, status: :unprocessable_entity }
+          
+           render json: @citizen_bank_datum.errors, status: :unprocessable_entity 
         end
-    end
-  end
-end
+      end
+   end
 
+
+
+  def getCitizen 
+     #fetch data pertaining to that bank
+     bank = Bank.find_by(:token => params[:token])
+
+      if bank != nil && params[:token] != nil
+        if bank.token == params[:token]
+            #bank=banks.where(:token =>"32147").limit(20)
+            citizens=bank.citizen_bank_data 
+            output = OpenStruct.new( :accountHolders => bank.citizen_bank_data,:status => 200 ,:message =>"REQUEST SUCCESSFUL")
+             render json: output 
+        end    
+    else
+      output = OpenStruct.new( :status => 402 ,:message =>"Access Denied" ,:moreInfo => "Please check token or paramater '?token='token goes here '")
+      render json: output
+      end 
+
+
+    end
+    
   # PATCH/PUT /citizen_bank_data/1
   # PATCH/PUT /citizen_bank_data/1.json
   def update
@@ -67,7 +85,27 @@ end
     end
   end
 
-  private
+
+  def getCitizen 
+     #fetch data pertaining to that bank
+     bank = Bank.find_by(:token => params[:token])
+
+      if bank != nil && params[:token] != nil
+        if bank.token == params[:token]
+            #bank=banks.where(:token =>"32147").limit(20)
+            citizens=bank.citizen_bank_data 
+            output = OpenStruct.new( :accountHolders => bank.citizen_bank_data,:status => 200 ,:message =>"REQUEST SUCCESSFUL")
+             render json: output 
+        end    
+    else
+      output = OpenStruct.new( :status => 402 ,:message =>"Access Denied" ,:moreInfo => "Please check token or paramater '?token='token goes here '")
+      render json: output
+      end 
+
+
+    end
+    
+      private
     # Use callbacks to share common setup or constraints between actions.
     def set_citizen_bank_datum
       @citizen_bank_datum = CitizenBankDatum.find(params[:id])
