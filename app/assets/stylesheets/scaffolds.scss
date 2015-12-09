@@ -30,7 +30,7 @@ a {
     background-color: #000;
   }
 }
-
+s
 div {
   &.field, &.actions {
     margin-bottom: 10px;
@@ -42,28 +42,23 @@ div {
 }
 
 .field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+    display: block;
+    padding: 5px;
+    background-color: #ffbd4a;
 }
 
 #error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
+    width: 100%;
+    border: 2px solid #C06E6E;
+    padding: 7px 7px 0px;
 
   h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
+    text-align: center;
+    font-size: 15px;
     margin: -7px;
     margin-bottom: 0px;
-    background-color: #c00;
-    color: #fff;
+    background-color: #ffbd4a;
+    color: #333;
   }
 
   ul li {

@@ -1,3 +1,233 @@
-<h1>Landing Page</h1>
-<%= link_to "Sign in as Bank", new_bank_session_path %> |
-<%= link_to "Sign in as Admin", new_admin_session_path %>
+  <style type="text/css">
+    .blog-masthead {
+    background-color: #e4e2e4;
+}
+
+.blog-nav-item {
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    font-weight: 500;
+    color: #36404a;
+}
+body{
+  background-color: #e4e2e4;
+}
+.thecolor{
+  color: #36404a;
+}
+
+.cr{
+  text-align: center;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #a89567;
+    transition: .3s;
+    background-color: #e4e2e4;
+}
+.overlay {
+    background: #36404a;
+    }
+  </style>
+
+
+  <div class="topbar">              
+    <%= render 'layouts/header_public' %>
+  </div>
+
+
+  <!-- HEADER -->
+
+      <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img class="first-slide" src="https://github.com/henrino3/control/blob/master/app/assets/images/1.png?raw=trues" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+                          </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /.carousel -->
+
+ <!--  <div id="slider">
+   FULLSCREEN SLIDER
+   <div class="tp-banner-container" style="overflow: visible;" style="color:#e4e2e4;">
+     <div class="tp-banner revslider-initialised tp-simpleresponsive hovered" id="revslider-841" style="max-height: 820px; height: 652px;">
+       <ul class="tp-revslider-mainul" style="display: block; overflow: hidden; width: 100%; height: 100%; max-height: none;">
+         SLIDE
+         <li data-transition="fade" data-slotamount="7" data-masterspeed="500" data-saveperformance="on" data-title="Intro Slide" class="tp-revslider-slidesli active-revslide current-sr-slide-visible" style="width: 100%; height: 100%; overflow: hidden; visibility: inherit; opacity: 1; z-index: 20;">
+           <div class="slotholder" style="width:100%;height:100%;">
+           <div class="tp-bgimg defaultimg" data-lazyload= ></div></div>
+           <div style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; z-index: 7; transform: matrix(1, 0, 0, 1, 0, 0);" class="tp-parallax-container" data-parallaxlevel="0"><div class="tp-caption lfl tp-resizeme rs-parallaxlevel-10 start" data-x="130" data-y="305" data-speed="700" data-start="800" data-easing="Power3.easeInOut" data-splitin="none" data-splitout="none" data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="300" style="z-index: 7; white-space: nowrap; font-size: 79px; font-weight: bold; text-transform: uppercase; color: rgb(255, 255, 255); transition: all 0s ease 0s; min-height: 0px; min-width: 0px; line-height: 113px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; left: 103.312px; top: 242.385px; visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.0025, 0, 0, 0, 1);">
+           </div></div>
+ 
+   <div style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; z-index: 7; transform: matrix(1, 0, 0, 1, 0, 0);" class="tp-parallax-container" data-parallaxlevel="0"><div class="tp-caption lfl tp-resizeme rs-parallaxlevel-10 start" data-x="130" data-y="400" data-speed="700" data-start="1150" data-easing="Power3.easeInOut" data-splitin="none" data-splitout="none" data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="300" style="z-index: 7; white-space: nowrap; font-size: 79px; font-weight: bold; text-transform: uppercase; color: rgb(255, 255, 255); transition: all 0s ease 0s; min-height: 0px; min-width: 0px; line-height: 113px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; left: 103.312px; top: 317.882px; visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.0025, 0, 0, 0, 1);">
+           </div></div>
+ 
+   <div style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; z-index: 8; transform: matrix(1, 0, 0, 1, 0, 0);" class="tp-parallax-container" data-parallaxlevel="0"><div class="tp-caption skewfromright randomrotateout tp-resizeme rs-parallaxlevel-10 start" data-x="130" data-y="530" data-speed="1000" data-start="1400" data-easing="Power3.easeInOut" data-splitin="none" data-splitout="none" data-elementdelay="0.1" data-endelementdelay="0.1" style="z-index: 8; white-space: nowrap; font-size: 19px; text-transform: uppercase; color: rgb(255, 255, 255); transition: all 0s ease 0s; min-height: 0px; min-width: 0px; line-height: 27px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; left: 103.312px; top: 421.194px; visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.0025, 0, 0, 0, 1);">
+             
+           </div></div>
+ 
+   <div class="tp-caption customin tp-resizeme rs-parallaxlevel-0 start" data-x="135" data-y="670" data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;" data-speed="500" data-start="1700" data-easing="Power3.easeInOut" data-splitin="none" data-splitout="none" data-elementdelay="0.05" data-endelementdelay="0.1" style="">
+           </div>
+         </li>
+ 
+       </ul>
+     <div class="tp-loader spinner4" style="display: none;"><div class="dot1"></div><div class="dot2"></div><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div><div class="tp-bannertimer" style="visibility: hidden; width: 0%;"></div></div>
+   </div>
+ </div> -->
+
+  <!-- ABOUT -->
+  <div class="container home-about">
+    <div class="row">
+      <div class="col-md-6">
+        <h3 class="uppercase thecolor">What is CONTROL SUITE ™</h3>
+        <p>CONTROL SUITE ™ is a robust and secure system, 
+          that gives Government's access and control of all the financial
+          records in the country.
+         </p>
+        
+        <p>Its is plugged in realtime to all the banks in 
+           the country and retrieves records of all transactions as they happen.
+          
+        </p>
+      </div>
+
+      <div class="col-md-6">
+        <img src='https://github.com/henrino3/control/blob/master/app/assets/images/CT.png?raw=true' class="img-responsive img-center" alt="">
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="container home-features">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="uppercase center-marg thecolor">Features</h3>
+        <div class="row cr">
+          <div class="col-md-4">
+            <img src="https://github.com/henrino3/control/blob/master/app/assets/images/i1.png?raw=true" class="text-center">
+            <h4>Secure</h4>
+            <p class="text-align">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+          </div>
+          <div class="col-md-4">
+             <img src="https://github.com/henrino3/control/blob/master/app/assets/images/i2.png?raw=true" class="text-center">
+            <h4>Access Control</h4>
+            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+          </div>
+          <div class="col-md-4">
+              <img src="https://github.com/henrino3/control/blob/master/app/assets/images/i3.png?raw=true" class="text-center">
+            <h4>Transparent</h4>
+            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- BLOG -->
+  <div class="container home-blog" style="
+    text-align: center">
+    <h2 class="uppercase thecolor" style="margin-bottom:10%">How to get Started</h2>
+    <div class="row" style="text-align: center;">
+      <div class="col-md-6 blog-content">
+        <h3 class="uppercaser">FOR GOVERNMENTS</h3>
+        <p>Call +23349750585 and book a demo</p>
+      </div>
+      <div class="col-md-6 blog-content">
+        <h3 class="uppercase">FOR BANKS</h3>
+        <p>It takes just a minute to request for you API token <br/>
+        Start <a href="banks/new">HERE</a> </p>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="home-stats" data-stellar-background-ratio="0.2">
+    <div class="overlay"></div>
+    <div class="container">
+      <h3 class="uppercase">Statistics</h3>
+      <div class="row">
+        <div class="col-md-3">
+          <h4>
+            <span id="stat1">3</span>
+            Governments
+          </h4>
+        </div>
+        <div class="col-md-3">
+          <h4>
+            <span id="stat2">45</span>
+            Banks
+          </h4>
+        </div>
+        <div class="col-md-3">
+          <h4>
+            <span id="stat3">3892</span>
+            Cizitens
+          </h4>
+        </div>
+        <div class="col-md-3">
+          <h4>
+            <span id="stat4">90293</span>
+            Transactions
+          </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="row">
+          <div class="col-md-6">
+            <h4>CONTROL SUITE ™</h4>
+            <p>
+             20 Aluguntuguntu Street, <br>
+             Ambassadorial Enclave, <br>
+             East Legon, Accra.
+            </p>
+            
+          </div>
+          
+          <div class="col-md-6">
+            <h4>Follow Us</h4>
+            <ul class="social">
+              <li><a href="file:///var/www/html/black/main.html#">Facebook</a></li>
+              <li><a href="file:///var/www/html/black/main.html#">Twitter</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FOOTER-COPYRIGHT -->
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p>2014 © CONTROL SUITE ™. All rights reserved.</p>
+        </div>
+        <div class="col-md-6">
+          <p class="pull-right">Made by <a href="file:///var/www/html/black/main.html#">#teamControl</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -5,5 +5,7 @@ class Admin < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  validates :password, :format => {:with =>/(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*\.\\]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/ ,multiline: true, message: "must have at least 1 capital letter and 1 alphanumeric character"}
+  validates :password, :format => {:with =>/(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*\.\\]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/ ,multiline: true, message: "	Must have at least 1 capital letter,\n 1 alphanumeric character \n and 1 symbol"}
+
+
 end

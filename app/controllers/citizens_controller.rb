@@ -1,10 +1,11 @@
 class CitizensController < ApplicationController
   before_action :set_citizen, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_admin!
+ # before_action :authenticate_admin!
   # GET /citizens
   # GET /citizens.json
   def index
     @citizens = Citizen.all
+    @citizen = Citizen.new
   end
 
   # GET /citizens/1

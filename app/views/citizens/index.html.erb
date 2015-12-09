@@ -31,6 +31,68 @@
 </table>
 
 <br>
-
+ <button class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#myModal">New Citizen</button>
 <%= link_to 'New Citizen', new_citizen_path %>
 <%= link_to 'Sign out', destroy_admin_session_path , method: :delete, data: { confirm: 'Are you sure?' } %> !
+
+
+
+
+        <div class="col-md-12">
+           <div class="card-box">
+
+              <h4 class="header-title m-t-0"><b>Bootstrap Modals (default)</b></h4>
+              <p class="text-muted m-b-30 font-13">
+                      A rendered modal with header, body, and set of actions in the footer.
+               </p>
+                      
+                      <!-- sample modal content -->
+                          <div style="display: none;" id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                  <div class="modal-content">
+
+                                   <%= form_for(@citizen) do |f| %>
+                                      <div class="modal-header">
+                                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                          <h4 class="modal-title" id="myModalLabel">New Citizen</h4>
+                                      </div>
+                                      <div class="modal-body">
+                                         
+                       
+
+                             <%= f.text_field :name, autofocus: true, :class=>"form-control name", :placeholder=>"Name" %>
+
+                             <%= f.text_field :email, autofocus: true, :class=>"form-control email", :placeholder=>"E-mail" %>
+
+                             <%= f.text_field :phone_num, autofocus: true, :class=>"form-control phone_num", :placeholder=>"Phone Num" %>
+
+                             <%= f.text_field :address, autofocus: true, :class=>"form-control address", :placeholder=>"Address" %>
+
+                             <%= f.text_field :national_id, autofocus: true, :class=>"form-control national_id", :placeholder=>"National Id" %>
+
+                     
+                                      </div>
+                                   <div class="modal-footer">
+                                    <div class="row"> 
+                                      <div class="col-md-6">                                                  
+                                          <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button> 
+                                       </div> 
+
+                                      <div class="col-md-6"> 
+                                        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                                      </div>
+
+                                    </div>
+                                     
+                                          
+                                      </div>
+                                 <% end %>
+
+                                  </div><!-- /.modal-content -->
+                              </div><!-- /.modal-dialog -->
+                          </div><!-- /.modal -->
+
+                          
+
+                   </div>
+               </div>
