@@ -1,61 +1,108 @@
-<%= render 'admins/header' %>  
-<p id="notice"><%= notice %></p>
+       <!-- Begin page -->
+        <div id="wrapper">
 
-<div id="wrapper">
+              <div class="account-pages"></div>
+            <!-- Top Bar Start -->
+            <div class="topbar">              
+              <%= render 'layouts/header_public' %>
+            </div>
+  
+          
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="left side-menu">
+              <%= render 'layouts/sidebar' %>
+            </div>
+                       <!-- Left Sidebar End -->
+  
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
 
-  <!-- Top Bar Start -->
-  <%= render 'admins/topbar' %>
-  <!-- Top Bar End -->
+            <div class="content-page">
+                <!-- Start content -->
+                <div class="content">
+                    <div class="container">
+
+                      <!-- INJECT DASHBOARD VIEW  -->
+                                                      <!-- Page-Title -->
+                                <div class="row">
+                                   <div class="col-sm-12">
+                                      <h4 class="page-title">Bank Customers</h4>
+                                      <p class="text-muted page-title-alt">
+                                      Welcome 
+                                      <%= current_admin.name if current_admin %>
+                                      <%= current_bank.name if current_bank %>
+
+                                      </p>
+                                  </div>
+                              </div>
 
 
-  <!-- LEFT SIDEBAR  -->
 
-  <%= render 'admins/left_sidebar' %>
+                                <p id="notice"><%= notice %></p>
+                                
+                                <!-- Page-Title -->
+                                <div class="row">
+                                      <div class="col-sm-12">
+                                        <div class="card-box">
+                                          <table id="datatable" class="table table-striped table-bordered">
+                                            <% if @citizen_bank.present? %>
+                                            <center><h1>Listing Citizens</h1></center>
 
-  <div class="content-page">
-    <!-- Start content -->
-    <div class="content">
-     <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="card-box">
-            <table id="datatable" class="table table-striped table-bordered">
-              <% if @citizen_bank.present? %>
-              <center><h1>Listing Citizens</h1></center>
+                                            <thead>
+                                              <tr>
+                                                <th>Citizen Name</th>
+                                                <th>Citizen Number</th>
+                                                <th>Citizen Email</th>
+                                                <th>Citizen Address</th>
+                                                <th>Citizen National ID</th>
+                                              </tr>
+                                            </thead>
 
-              <thead>
-                <tr>
-                  <th>Citizen Name</th>
-                  <th>Citizen Number</th>
-                  <th>Citizen Email</th>
-                  <th>Citizen Address</th>
-                  <th>Citizen National ID</th>
-                </tr>
-              </thead>
+                                            <tbody>
 
-              <tbody>
+                                              <tr>  
+                                                <td><%= @citizen_name%></td>
+                                                <td><%= @citizen_number %></td>
+                                                <td><%= @citizen_email %></td>
+                                                <td><%= @citizen_address %></td>
+                                                <td><%= @citizen_national_id %></td>
+                                              </tr>
+                                              <% else %>
+                                              <h1 class="text-center"><%= @empty%></h1>
+                                              <% end %>
 
-                <tr>  
-                  <td><%= @citizen_name%></td>
-                  <td><%= @citizen_number %></td>
-                  <td><%= @citizen_email %></td>
-                  <td><%= @citizen_address %></td>
-                  <td><%= @citizen_national_id %></td>
-                </tr>
-                <% else %>
-                <h1 class="text-center"><%= @empty%></h1>
-                <% end %>
+                                            </tbody>
+                                          </table>
+                                        </div>
+                                      </div>
+                                </div>
 
-              </tbody>
-            </table>
-          </div>
+
+
+        
+                    </div> <!-- container -->
+
+                </div> <!-- content -->
+
+
+          <footer class="footer text-right">
+                   <%= render 'layouts/footer' %>
+                   
+         </footer>
+
+            </div>
+
+             <!-- Right Sidebar -->
+            <div class="side-bar right-bar nicescroll">
+
+            <!-- ============================================================== -->
+            <!-- End Right content here -->
+            <!-- ============================================================== -->
+            
+            </div>
+            <!-- /Right-bar -->
+
         </div>
+        <!-- END wrapper -->
 
-
-
-        <br>
-
-       <!--  <%= link_to 'New Citizen', new_citizen_path %>
-        <%= link_to 'Sign out', destroy_admin_session_path , method: :delete, data: { confirm: 'Are you sure?' } %> !
-      -->
-      <%= render 'admins/footer'%>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+<meta name="author" content="Coderthemes">
+
+<link rel="shortcut icon" href="assets/images/favicon_1.ico">
+
+<title>CONTROL SUITE &#8482;</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'app', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'app', 'data-turbolinks-track' => true %>
+  <!--0273353327-->
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><font size="5">Control Suit <sup>TM<sup></sup></font></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+     
+      <ul class="nav navbar-nav navbar-right">
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><font size="5"><i class="fa fa-user"></i></font>
+<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <li><%= link_to "Logout", destroy_bank_session_path, method: :delete %></li>
+            
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+  
+</nav>
+
+
+<% if notice %>
+<!-- Modal -->
+<div id="myModal"style="width:40%;height:40%;" class="modal " role="dialog">
+  <div class="modal-dialog" style="width:50%;height:8%" >
+
+    <!-- Modal content-->
+    <div class="modal-content" style="background-color:green">
+      
+      <div class="modal-body">
+        <p><center><font size="2" color="white"><%= notice %></font></center></p>
+      </div>
+     </div>
+
+  </div>
+</div>
+<style type="text/css">
+  .modal-backdrop
+{
+    opacity:0 !important;
+}
+
+!important prevents it from being overridden
+</style>
+<script type="text/javascript">
+$('#myModal').modal('show');
+
+setTimeout(function close(){
+  $('#myModal').modal('hide');
+}, 2000);
+</script>
+
+<% end %>
+<% if alert %>
+<div id="myModal"style="width:40%;height:40%;" class="modal " role="dialog">
+  <div class="modal-dialog" style="width:10%" >
+
+    <!-- Modal content-->
+    <div class="modal-content" style="background-color:red">
+      
+      <div class="modal-body">
+        <p><<center><font size="5" color="white"><%= alert %></font></center></p>
+      </div>
+     </div>
+
+  </div>
+</div>
+<script type="text/javascript">
+$('#myModal').modal('show');
+
+setTimeout(function close(){
+  $('#myModal').modal('hide');
+}, 2000);
+</script>
+
+<style type="text/css">
+  .modal-backdrop
+{
+    opacity:0 !important;
+}
+
+!important prevents it from being overridden
+</style>
+<% end %>
+
+                       <%= yield %>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+   
+    <!-- Menu Toggle Script -->
+
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+   
+
+<hr>
+
+</body>
+</html>

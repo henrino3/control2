@@ -1930,6 +1930,7 @@ body.fixed-left .side-menu.left {
  * https://github.com/fians/Waves/blob/master/LICENSE
  */
 .waves-effect {
+  width:100%;
   position: relative;
   cursor: pointer;
   display: inline-block;

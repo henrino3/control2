@@ -1,4 +1,207 @@
-<h1>Landing Page</h1>
-<%= javascript_include_tag :defaults %>
-<%= link_to "Sign in as Bank", new_bank_session_path %> |
-<%= link_to "Sign in as Admin", new_admin_session_path %>
+  <style type="text/css">
+    .blog-masthead {
+    background-color: #e4e2e4;
+}
+
+.blog-nav-item {
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    font-weight: 500;
+    color: #36404a;
+}
+body{
+  background-color: #e4e2e4;
+}
+.thecolor{
+  color: #36404a;
+}
+
+.cr{
+  text-align: center;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #a89567;
+    transition: .3s;
+    background-color: #e4e2e4;
+}
+.overlay {
+    background: #36404a;
+    }
+  </style>
+
+
+  <div class="topbar">              
+    <%= render 'layouts/header_public' %>
+  </div>
+
+
+  <!-- HEADER -->
+
+      <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img class="first-slide" src="https://github.com/henrino3/control/blob/master/app/assets/images/1.png?raw=trues" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+                          </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /.carousel -->
+
+
+
+  <!-- ABOUT -->
+  <div class="container home-about">
+    <div class="row">
+      <div class="col-md-6">
+        <h3 class="uppercase thecolor">What is CONTROL SUITE ™</h3>
+        <p>CONTROL SUITE ™ is a robust and secure system, 
+          that gives Government's access and control of all the financial
+          records in the country.
+         </p>
+        
+        <p>Its is plugged in realtime to all the banks in 
+           the country and retrieves records of all transactions as they happen.
+          
+        </p>
+      </div>
+
+      <div class="col-md-6">
+        <img src='https://github.com/henrino3/control/blob/master/app/assets/images/CT.png?raw=true' class="img-responsive img-center" alt="">
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="container home-features">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="uppercase center-marg thecolor">Features</h3>
+        <div class="row cr">
+          <div class="col-md-4">
+            <img src="https://github.com/henrino3/control/blob/master/app/assets/images/i1.png?raw=true" class="text-center">
+            <h4>Secure</h4>
+            <p class="text-align">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+          </div>
+          <div class="col-md-4">
+             <img src="https://github.com/henrino3/control/blob/master/app/assets/images/i2.png?raw=true" class="text-center">
+            <h4>Access Control</h4>
+            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+          </div>
+          <div class="col-md-4">
+              <img src="https://github.com/henrino3/control/blob/master/app/assets/images/i3.png?raw=true" class="text-center">
+            <h4>Transparent</h4>
+            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- BLOG -->
+  <div class="container home-blog" style="
+    text-align: center">
+    <h2 class="uppercase thecolor" style="margin-bottom:10%">How to get Started</h2>
+    <div class="row" style="text-align: center;">
+      <div class="col-md-6 blog-content">
+        <h3 class="uppercaser">FOR GOVERNMENTS</h3>
+        <p>Call +23349750585 and book a demo</p>
+      </div>
+      <div class="col-md-6 blog-content">
+        <h3 class="uppercase">FOR BANKS</h3>
+        <p>It takes just a minute to request for you API token <br/>
+        Start <a href="banks/new">HERE</a> </p>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="home-stats" data-stellar-background-ratio="0.2">
+    <div class="overlay"></div>
+    <div class="container">
+      <h3 class="uppercase">Statistics</h3>
+      <div class="row">
+        <div class="col-md-3">
+          <h4>
+            <span id="stat1">3</span>
+            Governments
+          </h4>
+        </div>
+        <div class="col-md-3">
+          <h4>
+            <span id="stat2">45</span>
+            Banks
+          </h4>
+        </div>
+        <div class="col-md-3">
+          <h4>
+            <span id="stat3">3892</span>
+            Cizitens
+          </h4>
+        </div>
+        <div class="col-md-3">
+          <h4>
+            <span id="stat4">90293</span>
+            Transactions
+          </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="row">
+          <div class="col-md-6">
+            <h4>CONTROL SUITE ™</h4>
+            <p>
+             20 Aluguntuguntu Street, <br>
+             Ambassadorial Enclave, <br>
+             East Legon, Accra.
+            </p>
+            
+          </div>
+          
+          <div class="col-md-6">
+            <h4>Follow Us</h4>
+            <ul class="social">
+              <li><a href="file:///var/www/html/black/main.html#">Facebook</a></li>
+              <li><a href="file:///var/www/html/black/main.html#">Twitter</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FOOTER-COPYRIGHT -->
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p>2014 © CONTROL SUITE ™. All rights reserved.</p>
+        </div>
+        <div class="col-md-6">
+          <p class="pull-right">Made by <a href="file:///var/www/html/black/main.html#">#teamControl</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

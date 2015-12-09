@@ -3,7 +3,7 @@ class AdminsController < ApplicationController
 	before_action :set_count
 	
 	def index
-		render layout: false, action: :dashboard
+		render layout: true, action: :dashboard
 	end
 
 	def dashboard
@@ -13,10 +13,16 @@ class AdminsController < ApplicationController
 		redirect_to root_path
 	end
 
+	def delete
+		
+	end
+
 	private
 	def set_count
 		@number_of_citizens = Citizen.count
 		@number_of_banks = Bank.count
 		@number_of_transactions = Transaction.count	
 	end
+
+
 end

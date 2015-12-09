@@ -1,0 +1,57 @@
+
+            <!-- ========== Left Sidebar Start ========== -->
+
+            <div class="left side-menu">
+                <div class="sidebar-inner slimscrollleft">
+                    <!--- Divider -->
+                    <div id="sidebar-menu">
+                        <ul><li class="text-muted menu-title">Navigation</li>
+
+                            <li class="">
+                                <a href="/admins" class="waves-effect"><i class="ti-home"></i> <span> Dashboard </span> </a>
+                            </li>
+
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-university"></i> <span> Banks </span> </a>
+                                <ul class="list-unstyled">
+                                    <li><%= link_to "View", controller: "banks", action: "display" %></li>
+                                    <li><%#= link_to "Unauthorized ", controller: "banks", action: "signup_requests" %></li>
+                                </ul>
+                            </li>
+
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-users"></i><span> Citizens </span> </a>
+                                <ul class="list-unstyled">
+                                    <li><%= link_to "View", controller: "citizens", action: "index" %></li>
+                                    <li><%= link_to "Add", controller: "citizens", action: "new" %></li>
+                                </ul>
+                            </li>
+
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-file-text-o"></i> <span> Transactions </span> </a>
+                                <ul class="list-unstyled">
+                                    <li><%= link_to "View", controller: "transactions", action: "index" %></li>
+                                </ul>
+                            </li>
+
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="ti-pencil-alt"></i><span> Data </span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">Analytics</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="has_sub">
+                                <a href="#" class="waves-effect"><i class="ti-menu-alt"></i><span>Other </span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">Help</a></li>
+                                    <li><a href="#">Profile</a></li>
+                                </ul>
+                            </li>
+
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <!-- Left Sidebar End -->

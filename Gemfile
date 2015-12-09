@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 #add bootstrap
-gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+#gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 #add devise
 gem 'devise'
 # beautify db view
