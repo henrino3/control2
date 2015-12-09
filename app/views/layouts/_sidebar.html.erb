@@ -15,40 +15,37 @@
                                 <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-university"></i> <span> Banks </span> </a>
                                 <ul class="list-unstyled">
                                     <li><%= link_to "View", controller: "banks", action: "display" %></li>
-                                    <li><%= link_to "Signup Requests", controller: "banks", action: "display" %></li>
+                                    <li>#<%#= link_to "Signup Requests", controller: "banks", action: "signup_requests" %></li>
                                 </ul>
                             </li>
 
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-users"></i><span> Citizens </span> </a>
                                 <ul class="list-unstyled">
-                                    <li><a href="components-grid.html">View</a></li>
-                                    <li><a href="components-widgets.html">Add</a></li>
-                                    <li><a href="components-nestable-list.html">Settings</a></li>
+                                    <li><%= link_to "View", controller: "citizens", action: "index" %></li>
+                                    <li><%= link_to "Add", controller: "citizens", action: "new" %></li>
                                 </ul>
                             </li>
 
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-file-text-o"></i> <span> Transactions </span> </a>
                                 <ul class="list-unstyled">
-                                    <li><a href="icons-glyphicons.html">Glyphicons</a></li>
-                                    <li><a href="icons-materialdesign.html">Material Design</a></li>
-                                    <li><a href="icons-ionicons.html">Ion Icons</a></li>
+                                    <li><%= link_to "Transactions", controller: "transactions", action: "index" %>></li>
                                 </ul>
                             </li>
 
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="ti-pencil-alt"></i><span> Data </span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="form-elements.html">Analytics</a></li>
+                                    <li><a href="#">Analytics</a></li>
                                 </ul>
                             </li>
 
                             <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="ti-menu-alt"></i><span>Other </span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="tables-basic.html">Help</a></li>
-                                    <li><a href="tables-datatable.html">Profile</a></li>
+                                    <li><a href="#">Help</a></li>
+                                    <li><a href="#">Profile</a></li>
                                 </ul>
                             </li>
 

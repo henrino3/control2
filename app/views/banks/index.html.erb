@@ -24,6 +24,20 @@
                     <div class="container">
 
                       <!-- INJECT DASHBOARD VIEW  -->
+                                                      <!-- Page-Title -->
+                                <div class="row">
+                                   <div class="col-sm-12">
+                                      <h4 class="page-title">Bank Dashboard</h4>
+                                      <p class="text-muted page-title-alt">
+                                      Welcome 
+                                      <%= current_admin.name if current_admin %>
+                                      <%= current_bank.name if current_bank %>
+
+                                      </p>
+                                  </div>
+                              </div>
+
+
                                 <p id="notice"><%= notice %></p>
                                 
                                 <!-- Page-Title -->
