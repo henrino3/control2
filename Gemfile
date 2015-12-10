@@ -29,6 +29,13 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'font-awesome-sass', '~> 4.4.0'
 
+gem 'roo'
+gem 'iconv', "~> 1.0.3"
+gem 'protected_attributes' 
+gem 'roo-xls'
+gem 'will_paginate'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

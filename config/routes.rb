@@ -10,12 +10,16 @@ Rails.application.routes.draw do
     sessions: 'admin/sessions',
     registrations: 'admin/registrations'
   }
+
+
+  resources :citizens do
+    collection { post :import }
+  end
   
   resources :admins
   resources :banks
   resources :transactions
   resources :citizen_bank_data
-  resources :citizens
   #transaction access by banks
   get '/transaction/get', to: 'banks#getTransactionApi'
   post '/transaction/post', to: 'transactions#postTransactionApi'
