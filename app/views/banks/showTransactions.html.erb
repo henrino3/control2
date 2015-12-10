@@ -28,7 +28,7 @@
           <!-- Page-Title -->
           <div class="row">
            <div class="col-sm-12">
-            <h4 class="page-title">Bank Transactions</h4>
+           <h4 class="page-title">Bank Transactions (<%= Bank.find(params[:bank]).name %>)</h4>
             <p class="text-muted page-title-alt">
               Welcome 
               <%= current_admin.name if current_admin %>
@@ -64,7 +64,7 @@
                     <td><%= transaction.transaction_name %></td>
                     <td><%= number_to_currency(transaction.transaction_amount, unit: "GHS ") %></td>
                     <td><%= number_to_currency(transaction.account_balance, unit: "GHS ") %></td>
-                    <% @citizen_id = transaction.citizen_id%>
+                    <% @citizen_id = transaction.citizen_id %>
                     <td><%= Citizen.find(@citizen_id).name %></td>
                     <td><%= Citizen.find(@citizen_id).national_id %></td>
                     <td><%= transaction.created_at%></td>
