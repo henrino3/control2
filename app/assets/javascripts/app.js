@@ -29,10 +29,17 @@ function bankPage(option){
 		$("#dashboard").show();
 		$("#accounts").hide();
 		$("#profile").hide();
-
-	}
+		$("#transactions").hide();
+		}
 	else if (option === "accounts"){
 		$("#accounts").show();
+		$("#dashboard").hide();
+		$("#profile").hide();
+		$("#transactions").hide();
+	}
+	else if (option === "transactions"){
+		$("#transactions").show();
+		$("#accounts").hide();
 		$("#dashboard").hide();
 		$("#profile").hide();
 	}
@@ -40,6 +47,7 @@ function bankPage(option){
 		$("#profile").show();
 		$("#dashboard").hide();
 		$("#accounts").hide();
+		$("#transactions").hide();
 
 	}
 }
@@ -47,7 +55,9 @@ window.baseUrl="http://localhost:3000";
 function init(){
 	$("#accounts").hide();
 	$("#profile").hide();
-}
+	$("#transactions").hide();
+
+}init();
 
 //request function for making ajax call
 function request(callback,method,url){
@@ -82,6 +92,7 @@ function transaction(id,token) {
 
 				$("#mod-data").html("<tr><td>"+imediateData.transaction_name+"</td><td >"+imediateData.transaction_amount+"</td> <td>"
 					+imediateData.account_balance+"</td> <td>"+imediateData.updated_at+"</td></tr>");	
+				$('#tran').addClass('show');
 			}
 		}
 
@@ -96,14 +107,17 @@ function changeToken(oldToken) {
 			object=JSON.parse(jsondata);
 			console.log("changeToken function called,Results:"+object.table.newToken);
 			$(".ctoken").html(object.table.newToken);
-		},"GET","/tokengen.json?token="+oldToken)
+		},"GET","/tokengen.json?token="+oldToken);
+		 
 	} else {
 		console.log("token change ignored");
 	}
-}
+};
 
 
 
-
-
+function miniDocs(){
+	console.log("calling Docs")
+	$('#docs').addClass('show');
+};
 	

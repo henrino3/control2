@@ -5,7 +5,7 @@ class Citizen < ActiveRecord::Base
 
 
 	validates :name, presence: true
-	validates :national_id, presence: true, format: {:with => /^[A-Z]{3}\d{10}$/, multiline: true, message: "must have 3 capital letters and 10 digits following"}
+	validates :national_id, uniqueness: :true, presence: true, format: {:with => /^[A-Z]{3}\d{10}$/, multiline: true, message: "must have 3 capital letters and 10 digits following"}
 
 
   def self.import(file)

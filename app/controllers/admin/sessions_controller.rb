@@ -2,9 +2,14 @@ class Admin::SessionsController < Devise::SessionsController
 # before_filter :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+   def new
+      if current_bank
+         redirect_to banks_path, :notice => "Please Logout as Bank"
+
+     else
+         super
+     end
+    end
 
   # POST /resource/sign_in
   # def create
