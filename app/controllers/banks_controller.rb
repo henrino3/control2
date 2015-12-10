@@ -16,6 +16,7 @@
   #displays the different banks in the db
   def display
     @banks = Bank.all
+    @banks = Bank.paginate(:page => params[:page], :per_page => 25)
     render :template => "banks/index", layout: true
   end
   

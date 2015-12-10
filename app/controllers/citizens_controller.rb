@@ -6,6 +6,7 @@ class CitizensController < ApplicationController
 # GET /citizens.json
 def index
   @citizens = Citizen.order("id DESC").all
+  @citizens = Citizen.paginate(:page => params[:page], :per_page => 25)
   render layout: true
 end
 
@@ -17,9 +18,7 @@ end
   def getTransactions
     @citizen_id = params[:citizen]
     if Transaction.find_by(citizen_id: @citizen_id).present?
-      @transaction = Transaction.find_by(citizen_id: @citizen_id)
-      @bank_id = @transaction.bank_id
-      @bank_name = Bank.find(@bank_id).name
+      @transactions = Transaction.where(citizen_id: @citizen_id)
     else
       @empty = "No transactions for this citizen"
     end
@@ -36,8 +35,15 @@ end
 
 # GET /citizens/new
 def new
-  @citizen = Citizen.new
+  @citizens = Citizen.order("id DESC").limit(10)
 end
+
+
+def import
+ Citizen.import(params[:file])
+ redirect_to :action => "new", :notice => "Citizen was successfully imported"
+end
+
 
 # GET /citizens/1/edit
 def edit
@@ -90,10 +96,10 @@ def genToken
 end
 
 private
-  # Use callbacks to share common setup or constraints between actions.
-  def set_citizen
-    @citizen = Citizen.find(params[:id])
-  end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_citizen
+      @citizen = Citizen.find(params[:id])
+    end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def citizen_params

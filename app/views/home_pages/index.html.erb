@@ -3,16 +3,7 @@
     width: 101%;
     margin-top: -20%;
     }
-    .ex-page-content{
-    position: absolute;
-    padding-top: 26%;
-    margin-top: -157%;
-    background-color: rgba(119, 136, 153, 0.83);
-    width: 323%;
-    margin-left: -111%;
-    padding-bottom: 41%;
-    }
-    .thisone{
+   .thisone{
     background: rgba(95, 190, 170, 0.7)!important;
     margin-top: 42px;
     padding: 19px;
@@ -32,6 +23,48 @@
     display: none;
     }
 
+    .bg-img {
+    background: transparent url("assets/img1.jpg") repeat scroll 0% 0% / cover;
+    position: relative;
+    }
+
+    .bg-overlay {
+        background: rgba(0, 0, 0, 0.5) none repeat scroll 0% 0%;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0px;
+    }
+
+    .home-wrapper {
+        color: #FFF;
+        padding: 100px 0px;
+    }
+
+    .bg-dark {
+    background: transparent linear-gradient(#444F5C, #334159) repeat scroll 0% 0%;
+    }
+
+    .bg-gray {
+        background-color: #EEF2F5;
+        border-bottom: 1px solid #E9E9E9;
+        border-top: 1px solid #E9E9E9;
+    }
+
+    .section {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .fadeInLeft {
+    animation-name: fadeInLeft;
+    }
+
+    .animated {
+        animation-duration: 1s;
+        animation-fill-mode: both;
+    }
+
 </style>
 
 
@@ -39,34 +72,30 @@
   <%= render 'layouts/header_public' %>
 </div>
 
-<div class="splash-div">
-  <img class="splash" src="assets/img1.jpg">
-  
-</div>
-<div class="account-pages"></div>
-<div class="clearfix"></div>
 
-<div class="wrapper-page">
-  <div class="ex-page-content text-center">
-    <div class="for_hide">
-      
-      <div class="text-error">
-        <h1 class="text-center">
-        <strong class="text-custom">CONTROL <i class="md md-album"></i> SUITE  &#8482;</strong> </h1>
+<section class="home bg-img" id="home">
+  <div class="bg-overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+
+        <div class="home-wrapper">     
+          <div class="text-error">
+            <h1 class="text-center">
+            <strong class="text-custom">CONTROL SUITE  &#8482;</strong> </h1>
+          </div>
+            <a class="thisone btn btn-default waves-effect waves-light">
+              is a robust and secure system, <br/>
+              that gives Government's access and <br/>
+              control of all the financial <br/>
+              records in the country.
+            </a>
+        </div>
+
       </div>
-      
-      <a class="thisone btn btn-default waves-effect waves-light" href="index.html">
-        is a robust and secure system, <br/>
-        that gives Government's access and <br/>
-        control of all the financial <br/>
-        records in the country.
-      </a>
-      
     </div>
   </div>
-</div>
-
-
+</section>
 
 <!-- ABOUT -->
 <div class="container home-about">
@@ -88,88 +117,174 @@
     </div>
   </div>
 </div>
+
+
+
 <!-- FEATURES -->
-<div class="container home-features" style="margin-top:40px">
-  <div class="row">
-    <div class="col-md-12" >
-      <h1 class="uppercase center-marg thecolor" style="margin:40px">Features</h1>
-      <div class="row cr">
-        <div class="col-md-3" style="margin:40px">
-          <img src="https://github.com/henrino3/control/blob/master/app/assets/images/i1.png?raw=true" class="text-center">
-          <h4>Secure</h4>
-          <p class="text-align"></p>
+
+<section class="section" id="services">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h3 class="text-uppercase font-bold">Features</h3>
+                    <div class="title-hr"></div>
+
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <p class="sub-title"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row text-center">
+
+                <div style="visibility: visible; animation-name: fadeInLeft;" class="col-sm-4 wow fadeInLeft animated animated">
+                    <div class="services-box">
+                        <div class="icon-box">
+                            <img src="https://github.com/henrino3/control/blob/master/app/assets/images/i1.png?raw=true" alt="">
+                        </div>
+
+
+                        <div>
+                            <h4 class="font-bold">Secure</h4>
+                            <p class="text-muted"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="visibility: visible; animation-name: fadeInUp;" class="col-sm-4 wow fadeInUp animated animated">
+                    <div class="services-box">
+                        <div class="icon-box">
+                            <img src="https://github.com/henrino3/control/blob/master/app/assets/images/i2.png?raw=true" alt="">
+                        </div>
+
+
+                        <div>
+                            <h4 class="font-bold">Access Levels</h4>
+                            <p class="text-muted"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="visibility: visible; animation-name: fadeInRight;" class="col-sm-4 wow fadeInRight animated animated">
+                    <div class="services-box">
+                        <div class="icon-box">
+                            <img src="https://github.com/henrino3/control/blob/master/app/assets/images/i3.png?raw=true" alt="">
+                        </div>
+
+
+                        <div>
+                            <h4 class="font-bold">Intutive</h4>
+                            <p class="text-muted"></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
         </div>
-        <div class="col-md-3" style="margin:40px">
-          <img src="https://github.com/henrino3/control/blob/master/app/assets/images/i2.png?raw=true" class="text-center">
-          <h4>Access Control</h4>
-          <p></p>
+    </section>
+
+
+<!-- TEAM -->
+<section class="section bg-gray" id="team">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h3 style="visibility: visible; animation-name: zoomIn;" class="text-uppercase font-bold zoomIn animated wow animated">#TeamControl</h3>
+                    <div class="title-hr"></div>
+
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <p style="visibility: visible; animation-delay: 0.2s; animation-name: zoomIn;" class="sub-title zoomIn animated wow animated" data-wow-delay=".2s"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="row team text-center">
+                        <!-- team-member -->
+                        <div class="col-sm-4">
+                            <div style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInDown;" class="team-member animated fadeInDown wow animated" data-wow-delay=".1s">
+                                <img src="assets/eddy.jpg" alt="team-member" class="img-responsive">
+                                <h3>Eddy</h3>
+                                <ul class="list-inline social-list">
+                                    <li><a href="https://github.com/eddymens"><img src="assets/github.jpg" width="30px"></i></a>
+                                    </li>
+                               </ul>
+                            </div>
+                        </div>
+
+                        <!-- team-member -->
+                        <div class="col-sm-4">
+                            <div style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInDown;" class="team-member animated fadeInDown wow animated" data-wow-delay=".3s">
+                                <img src="assets/chiamaka.jpg" alt="team-member" class="img-responsive">
+                                <h3>Chiamaka</h3>
+                                <ul class="list-inline social-list">
+                                    <li><a href="https://github.com/chiamaka"><img src="assets/github.jpg" width="30px"></i></a>
+                                    </li>
+                               </ul>
+                            </div>
+                        </div>
+
+                        <!-- team-member -->
+                        <div class="col-sm-4">
+                            <div style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;" class="team-member animated fadeInDown wow animated" data-wow-delay=".5s">
+                                <img src="assets/henry.jpg" alt="team-member" class="img-responsive">
+                                <h3>Henry</h3>
+                                <ul class="list-inline social-list">
+                                    <li><a href="https://github.com/henrino3"><img src="assets/github.jpg" width="30px"></i></a>
+                                    </li>
+                               </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
         </div>
-        <div class="col-md-3" style="margin:40px">
-          <img src="https://github.com/henrino3/control/blob/master/app/assets/images/i3.png?raw=true" class="text-center">
-          <h4>Transparent</h4>
-          <p></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- BLOG -->
-<div class="container home-blog" style="
-  text-align: center">
-  <h2 class="uppercase thecolor" style="margin-bottom:10%">How to get Started</h2>
-  <div class="row" style="text-align: center;">
-    <div class="col-md-6 blog-content">
-      <h3 class="uppercaser">FOR GOVERNMENTS</h3>
-      <p>Call +23349750585 and book a demo</p>
-    </div>
-    <div class="col-md-6 blog-content">
-      <h3 class="uppercase">FOR BANKS</h3>
-      <p>It takes just a minute to request for you API token <br/>
-        Start <a href="banks/new">HERE</a> </p>
-      </div>
-      
-    </div>
-  </div>
+    </section>
+
+
   <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="row">
-          <div class="col-md-6">
-            <h4>CONTROL SUITE ™</h4>
-            <p>
-              20 Aluguntuguntu Street, <br>
-              Ambassadorial Enclave, <br>
-              East Legon, Accra.
-            </p>
-            
-          </div>
-          
-          <div class="col-md-6">
-            <h4>Follow Us</h4>
-            <ul class="social">
-              <li><a href="file:///var/www/html/black/main.html#">Facebook</a></li>
-              <li><a href="file:///var/www/html/black/main.html#">Twitter</a></li>
-            </ul>
-          </div>
+
+
+
+
+  <section class="section bg-dark footer-cta">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <div style="visibility: visible; animation-delay: 0.1s; animation-name: zoomIn;" class="zoomIn animated wow animated" data-wow-delay=".1s">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <p>2014 © CONTROL SUITE ™. All rights reserved.</p>
+                            </div>
+                            <div class="col-md-6">
+                              <p class="pull-right">Made by <a href="https://github.com/eddymens/control2" style="color:#ffffff">#teamControl</a></p>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </footer>
-  <!-- FOOTER-COPYRIGHT -->
-  <div class="footer-bottom">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <p>2014 © CONTROL SUITE ™. All rights reserved.</p>
-        </div>
-        <div class="col-md-6">
-          <p class="pull-right">Made by <a href="file:///var/www/html/black/main.html#">#teamControl</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+    </section>
+
+
+
+
 
 
 <script type="text/javascript">
