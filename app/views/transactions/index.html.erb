@@ -51,7 +51,7 @@
                                               <% @transactions.each do |transaction| %>
                                               <tr>
                                                 <td><%= transaction.transaction_name %></td>
-                                                <td><%= transaction.transaction_amount %></td>
+                                                <td><%= number_to_currency(transaction.transaction_amount, unit: "GHS") %></td>
                                                 <td><%= transaction.account_balance %></td>
                                                 <td><%= transaction.bank.name %></td>
                                                 <td><%= transaction.citizen.national_id %></td>
