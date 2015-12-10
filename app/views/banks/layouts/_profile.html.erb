@@ -1,0 +1,20 @@
+                <!-- Page-Title -->
+                  <div class="row">
+                   <div class="col-lg-3">
+                     <h2>API Token</h2>
+                             <strong>Token</strong>
+                            <div class="ctoken"><%= @bank.token %></div>
+                          
+                              <a href="#" onClick="miniDocs();">View Api Documentation</a>
+                              <button class="btn btn-default pull-right" onclick="changeToken('<%= @bank.token %>')">Generate New</button>
+                            <br>
+                            <span style="color:red">Please keep your token safe</span>
+                        </div>
+
+                   <div class="col-lg-9">
+                     <h2>API Token</h2>
+                         <div class="panel-body">
+                              <%= render 'form' %>
+                         </div>
+                   </div>
+                </div>
