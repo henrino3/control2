@@ -26,7 +26,7 @@ class TransactionsController < ApplicationController
   # POST /transactions.json
   def create
     @transaction = Transaction.new(transaction_params)
-
+     
     respond_to do |format|
       if @transaction.save
         format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
@@ -55,25 +55,24 @@ class TransactionsController < ApplicationController
 
      def postTransactionApi
       @bank = Bank.find_by( :token => params[:token])
-      respond_to do |format|
-      if    @bank
+      if    bank != nil && params[:token] != nil
         if  @bank.token == params[:token]
-   
+          @citizen=Citizen.find_by(params[:citizen_id])
           @transaction = Transaction.new(transaction_params)
           if @transaction.save
             @postTransactionOutput = OpenStruct.new(:transactions => @transaction , :status => 200 ,:message => "TRANSACTION WAS SAVED CREATED")
-            format.json { render json: @postTransactionOutput  , status: :unprocessable_entity }
+                 render json: @postTransactionOutput  
           end
-         end  
+          
 
           else
             @postTransactionError = OpenStruct.new(:status => 402, :message => "TRANSACTION FAILED")
-            format.json { render json: @postTransactionError , status: :unprocessable_entity }
+                 render json: @postTransactionError 
           end
         end
 
   end
-  # DELETE /transactions/1
+    # DELETE /transactions/1
   # DELETE /transactions/1.json
   def destroy
     @transaction.destroy

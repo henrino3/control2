@@ -1,7 +1,7 @@
 
 /*
-File contains common fucntions used by most pages in the application 
-Eddymens
+File contains common functions used by most pages in the application 
+
 
 */
 $(document).ready(function () {
@@ -74,8 +74,8 @@ xhr.send("");
 //function for getting transactions of citizens
 function transaction(id,token) {
 	request(function (jsondata) {
-		object= JSON.parse(jsondata);
-		var data=object.table.transactions;
+		object = JSON.parse(jsondata);
+		var data = object.table.transactions;
 		for(i=0 ; data.length>i ;i++){
 			imediateData=data[i];
 			if(imediateData.citizen_id === id ){
@@ -106,3 +106,4 @@ function changeToken(oldToken) {
 
 
 
+	

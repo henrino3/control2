@@ -25,7 +25,8 @@ Rails.application.routes.draw do
   post '/transaction/post', to: 'transactions#postTransactionApi'
 
   get  '/citizen/get' , to: 'citizen_bank_data#getCitizen'
-  post  '/citizen/post' , to:'citizens#postcitizen'
+  post  '/citizen/post' , to: 'citizen_bank_data#postCitizen'  
+  #post  '/citizen/get' , to:'citizens#create'
   
   #change Token
   get  '/tokengen' , to:'banks#genToken'
