@@ -1,88 +1,84 @@
-       <!-- Begin page -->
-        <div id="wrapper">
+     <!-- Begin page -->
+     <div id="wrapper">
 
-              <div class="account-pages"></div>
-            <!-- Top Bar Start -->
-            <div class="topbar">              
-              <%= render 'layouts/header_public' %>
+      <div class="account-pages"></div>
+      <!-- Top Bar Start -->
+      <div class="topbar">              
+        <%= render 'layouts/header_public' %>
+      </div>
+
+
+      <!-- ========== Left Sidebar Start ========== -->
+      <div class="left side-menu">
+        <%= render 'layouts/sidebar' %>
+      </div>
+      <!-- Left Sidebar End -->
+
+      <!-- ============================================================== -->
+      <!-- Start right Content here -->
+      <!-- ============================================================== -->
+
+      <div class="content-page">
+        <!-- Start content -->
+        <div class="content">
+          <div class="container">
+
+            <!-- INJECT DASHBOARD VIEW  -->
+
+
+
+            <p id="notice"><%= notice %></p>
+
+            <!-- Page-Title -->
+
+            <div class="row">
+             <div class="col-sm-12">
+              <h2>Banks</h2>
+              <p class="text-muted page-title-alt">Showing the <%= Bank.count %> banks in the system</p>
             </div>
-  
-          
-            <!-- ========== Left Sidebar Start ========== -->
-            <div class="left side-menu">
-              <%= render 'layouts/sidebar' %>
+          </div>
+
+          <div class="row">
+            <% @banks.each do |bank| %>
+            <div class="col-sm-6 col-md-6 col-lg-4">
+              <div class="widget-bg-color-icon card-box">
+                <div class="bg-icon bg-icon-pink pull-right">
+                  <i class="md md-favorite-outline text-pink"><%= bank.name[0] %></i>
+                </div>
+                <div class="text-left">
+                  <h4><p class="text-dark"><%= bank.name %></p></h4>
+                  <p class="text-muted"><%= bank.registration_no %></p>
+                  <p class="text-muted"><%= bank.email %></p>
+                  <p class="text-muted"><%= bank.bank_website %></p>
+                  <td><%= link_to 'View Transactions', {:controller => :banks, :action => :getTransactions, :bank => bank}, class: "pull-left"%></td>
+                  <td><%= link_to 'View Customers', {:controller => :banks, :action => :getCustomers, :bank => bank}, class: "pull-right"%></td>
+                </div>
+                <div class="clearfix"></div>
+              </div>
             </div>
-                       <!-- Left Sidebar End -->
-  
-            <!-- ============================================================== -->
-            <!-- Start right Content here -->
-            <!-- ============================================================== -->
+            <% end %>
+          </div>
+        </div> <!-- container -->
 
-            <div class="content-page">
-                <!-- Start content -->
-                <div class="content">
-                    <div class="container">
-
-                      <!-- INJECT DASHBOARD VIEW  -->
+      </div> <!-- content -->
 
 
+      <footer class="footer text-right">
+       <%= render 'layouts/footer' %>
 
-                                <p id="notice"><%= notice %></p>
-                                
-                                <!-- Page-Title -->
+     </footer>
 
-                                  <div class="row">
-                                       <div class="col-sm-12">
-                                          <h4 class="page-title">Banks</h4>
-                                          <p class="text-muted page-title-alt">Showing the <%= @number_of_banks %> banks in the system</p>
-                                      </div>
-                                  </div>
+   </div>
 
+   <!-- Right Sidebar -->
+   <div class="side-bar right-bar nicescroll">
 
-                                    <div class="row">
-                                      <% @banks.each do |bank| %>
-                                        <div class="col-sm-6 col-md-6 col-lg-4">
-                                          <div class="widget-bg-color-icon card-box">
-                                            <div class="bg-icon bg-icon-pink pull-right">
-                                              <i class="md md-favorite-outline text-pink"><%= bank.name[0] %></i>
-                                            </div>
-                                            <div class="text-left">
-                                              <h4><p class="text-dark"><%= bank.name %></p></h4>
-                                              <p class="text-muted"><%= bank.registration_no %></p>
-                                              <p class="text-muted"><%= bank.email %></p>
-                                              <p class="text-muted"><%= bank.bank_website %></p>
-                                              <td><%= link_to 'View Transactions', {:controller => :banks, :action => :getTransactions, :bank => bank}, class: "pull-left"%></td>
-                                              <td><%= link_to 'View Customers', {:controller => :banks, :action => :getCustomers, :bank => bank}, class: "pull-right"%></td>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                          </div>
-                                        </div>
-                                        <% end %>
-                                      </div>
+    <!-- ============================================================== -->
+    <!-- End Right content here -->
+    <!-- ============================================================== -->
 
-                                      
-                                     <div class="pull-right"> <%= will_paginate @banks %></div>
-                    </div> <!-- container -->
+  </div>
+  <!-- /Right-bar -->
 
-                </div> <!-- content -->
-
-
-          <footer class="footer text-right">
-                   <%= render 'layouts/footer' %>
-                   
-         </footer>
-
-            </div>
-
-             <!-- Right Sidebar -->
-            <div class="side-bar right-bar nicescroll">
-
-            <!-- ============================================================== -->
-            <!-- End Right content here -->
-            <!-- ============================================================== -->
-            
-            </div>
-            <!-- /Right-bar -->
-
-        </div>
-        <!-- END wrapper -->
+</div>
+<!-- END wrapper -->
