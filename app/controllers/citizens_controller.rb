@@ -6,7 +6,6 @@ class CitizensController < ApplicationController
 # GET /citizens.json
 def index
   @citizens = Citizen.order("id DESC").all
-  #check_bank
   render layout: true
 end
 
@@ -15,21 +14,21 @@ end
   def show
   end
 
-def getTransactions
-  @citizen_id = params[:citizen]
-  if Transaction.find_by(citizen_id: @citizen_id).present?
-    @transaction = Transaction.find_by(citizen_id: @citizen_id)
-    @bank_id = @transaction.bank_id
-    @bank_name = Bank.find(@bank_id).name
-  else
-    @empty = "No transactions for this citizen"
+  def getTransactions
+    @citizen_id = params[:citizen]
+    if Transaction.find_by(citizen_id: @citizen_id).present?
+      @transaction = Transaction.find_by(citizen_id: @citizen_id)
+      @bank_id = @transaction.bank_id
+      @bank_name = Bank.find(@bank_id).name
+    else
+      @empty = "No transactions for this citizen"
+    end
+
+    render layout: true, action: :showTransactions
   end
 
-  render layout: true, action: :showTransactions
-end
-
-def showTransactions
-end
+  def showTransactions
+  end
 # GET /citizens/1
 # GET /citizens/1.json
 def show
@@ -89,12 +88,6 @@ def genToken
   @bank.token=params[:new]
   @bank.save
 end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_citizen
-      @citizen = Citizen.find(params[:id])
-    end
 
 private
   # Use callbacks to share common setup or constraints between actions.
