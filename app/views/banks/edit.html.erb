@@ -1,6 +1,97 @@
-<h1>Editing Bank</h1>
+<style type="text/css">
+    #error_explanation{
+        font-size: 18px;
 
-<%= render 'form' %>
+    }
+ 
+  h2{
+        font: ;ont-size: 18px;
+    margin-left: 22px
 
-<%= link_to 'Show', @bank %> |
+    }
+</style>
+
+ 
+        <!-- Begin page -->
+        <div id="wrapper">
+
+              <div class="account-pages"></div>
+            <!-- Top Bar Start -->
+            <div class="topbar">              
+              <%= render 'layouts/header_public' %>
+            </div>
+  
+ <!-- ========== Left Sidebar Start ========== -->
+            <div class="left side-menu">
+              <%= render 'layouts/sidebar' %>
+            </div>
+                       <!-- Left Sidebar End -->
+  
+  
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+                <!-- Start content -->
+                <div class="content">
+                    <div class="container">
+
+                      <!-- INJECT DASHBOARD VIEW  -->
+    
+<div class="row">
+
+            <div class="col-sm-10">
+
+                <div class="wrapper-page signup-signin-page">
+                    <div class="card-box">
+                        <div class="panel-heading">
+                            <h3 class="text-center"> <strong class="text-custom">EDIT<i class="md md-album"></i>  <%= @bank.name.to_s.humanize %> </strong></h3>
+                        </div>
+
+                         
+
+                          <%= render 'form' %>
+
+                     
+                    </div>
+          
+                </div>
+
+
+            </div>
+
+        </div>
+        <div>
+
+        <hr/>
+        <%= link_to 'Show', @bank %> |
 <%= link_to 'Back', banks_path %>
+
+
+        
+                    </div> <!-- container -->
+
+                </div> <!-- content -->
+
+
+          <footer class="footer text-right">
+                   <%= render 'layouts/footer' %>
+                   
+         </footer>
+
+            </div>
+
+             <!-- Right Sidebar -->
+            <div class="side-bar right-bar nicescroll">
+
+            <!-- ============================================================== -->
+            <!-- End Right content here -->
+            <!-- ============================================================== -->
+            
+            </div>
+            <!-- /Right-bar -->
+
+        </div>
+        <!-- END wrapper -->
+

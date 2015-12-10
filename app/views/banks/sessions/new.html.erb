@@ -21,7 +21,10 @@
 
             <div class="panel-body">
      
-         <%= form_for(resource, as: resource_name, url: session_path(resource_name),:html => {:class => 'form-horizontal m-t-20'}) do |f| %>              
+         <%= form_for(resource, as: resource_name, url: session_path(resource_name),:html => {:class => 'form-horizontal m-t-20'}) do |f| %>        
+                      <%= devise_error_messages! %>
+
+                            
                 <div class="form-group ">
                     <div class="col-xs-12">
                         <%= f.email_field :email, autofocus: true, :class => 'form-control', :placeholder => 'Username' %>
@@ -71,7 +74,8 @@
 
            <div class="row">
               <div class="col-sm-12 text-center">
-              <a href="banks/password/new">Forgot your password?</a>
+              <a href="sign_up">Sign Up</a><br>
+              <a href="password/new">Forgot your password?</a>
                 <%#= render "bank/shared/links" %>
               </div>
             </div>
