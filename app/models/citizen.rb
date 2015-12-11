@@ -1,7 +1,7 @@
 class Citizen < ActiveRecord::Base
 	has_many :citizen_bank_data
 	has_many :transactions
-	attr_accessible :national_id, :address, :email, :phone_num, :name
+	
 
 
 	validates :name, presence: true

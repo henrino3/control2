@@ -86,6 +86,28 @@ class CitizenBankDataController < ApplicationController
   end
 
 
+  def postCitizen
+    bank = Bank.find_by( :token => params[:token])
+    if    bank != nil && params[:token] != nil
+      if   bank.token == params[:token]
+           @citizen=Citizen.find_by(national_id: params[:national_id])
+           @citizen_bank_datum = CitizenBankDatum.new(citizen_bank_datum_params)
+           @citizen_bank_datum.citizen_id = @citizen.id
+           @citizen_bank_datum.bank_id = bank.id
+        if @citizen_bank_datum.save
+          @successOutput = OpenStruct.new(transactions: @scitizen_bank_datum , status: 200 , message:  "CITIZEN BANK DATA ADDED SUCCESSFULLY")
+          render json: @successOutput
+        end
+
+
+      else
+        @errorOutput = OpenStruct.new(status:  402, message: "FAILED TO ")
+        render json: @errorOutput 
+      end
+    end
+
+  end
+
   def getCitizen 
      #fetch data pertaining to that bank
      bank = Bank.find_by(:token => params[:token])
@@ -113,6 +135,6 @@ class CitizenBankDataController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def citizen_bank_datum_params
-      params.require(:citizen_bank_datum).permit(:national_id, :bank_id, :account_id, :citizen_id)
+      params.require(:citizen_bank_datum).permit(:national_id, :bank_id, :account_id, :citizen_id , :reg_date)
     end
   end

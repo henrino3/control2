@@ -7,7 +7,6 @@ class CitizensController < ApplicationController
 def index
   @citizens = Citizen.order("id DESC").all
   @citizens = Citizen.paginate(:page => params[:page], :per_page => 25)
-  #check_bank
   render layout: true
 end
 
@@ -16,21 +15,19 @@ end
   def show
   end
 
-def getTransactions
-  @citizen_id = params[:citizen]
-  if Transaction.find_by(citizen_id: @citizen_id).present?
-    @transaction = Transaction.find_by(citizen_id: @citizen_id)
-    @bank_id = @transaction.bank_id
-    @bank_name = Bank.find(@bank_id).name
-  else
-    @empty = "No transactions for this citizen"
+  def getTransactions
+    @citizen_id = params[:citizen]
+    if Transaction.find_by(citizen_id: @citizen_id).present?
+      @transactions = Transaction.where(citizen_id: @citizen_id)
+    else
+      @empty = "No transactions for this citizen"
+    end
+
+    render layout: true, action: :showTransactions
   end
 
-  render layout: true, action: :showTransactions
-end
-
-def showTransactions
-end
+  def showTransactions
+  end
 # GET /citizens/1
 # GET /citizens/1.json
 def show
@@ -38,14 +35,13 @@ end
 
 # GET /citizens/new
 def new
-  # @citizen = Citizen.new
   @citizens = Citizen.order("id DESC").limit(10)
 end
 
 
 def import
-   Citizen.import(params[:file])
-    redirect_to :action => "new", :notice => "Citizen was successfully imported"
+ Citizen.import(params[:file])
+ redirect_to :action => "new", :notice => "Citizen was successfully imported"
 end
 
 
@@ -99,7 +95,7 @@ def genToken
   @bank.save
 end
 
-  private
+private
     # Use callbacks to share common setup or constraints between actions.
     def set_citizen
       @citizen = Citizen.find(params[:id])

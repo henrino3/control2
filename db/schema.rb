@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151206114233) do
+ActiveRecord::Schema.define(version: 20151209133948) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20151206114233) do
     t.string   "token"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "national_id"
   end
 
   add_index "banks", ["email"], name: "index_banks_on_email", unique: true, using: :btree
@@ -70,6 +71,7 @@ ActiveRecord::Schema.define(version: 20151206114233) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "bank_id"
+    t.string   "reg_date"
   end
 
   add_index "citizen_bank_data", ["bank_id"], name: "index_citizen_bank_data_on_bank_id", using: :btree
@@ -93,6 +95,7 @@ ActiveRecord::Schema.define(version: 20151206114233) do
     t.integer  "citizen_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.string   "national_id"
   end
 
   add_index "transactions", ["bank_id"], name: "index_transactions_on_bank_id", using: :btree
