@@ -1,0 +1,50 @@
+                <!-- Page-Title -->
+                   <div>  
+                    <div style="margin-top:5%" class="accounts">
+                      <div style="display:none">
+                        <% citizens = @bank.citizen_bank_data %>
+                      </div>
+
+
+                      <div class="input-group"> <span class="input-group-addon">Filter</span>
+
+                        <input id="filter" type="text" class="form-control" placeholder="Type here...">
+                      </div>
+                      <table class="table table-striped">
+                      <% if CitizenBankDatum %>
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Acc #</th>
+                            <th>National Id</th>
+                            <th>Registration Date</th>
+                            <!-- <th>Registration </th> -->
+                          </tr>
+                        </thead>
+                        <% end %>
+                        <tbody class="searchable">
+                          <div style="display:none">
+                            <%= count=0 %>
+                          </div>
+                          <% @bank.citizen_bank_data.each do |account| %>
+                          <tr>
+                            <div style="display:none">
+                            <%= citizenbio= Citizen.find_by(:id => account.citizen_id ) %>
+                           </div>
+                           <td><%= count=count+1 %> </td>
+                           <td onclick="transaction()">
+                                <%= citizenbio.name %></td>
+                           <td><%= account.account_id %></td>
+                           <td><%= account.national_id %></td>
+                           <td><%#= account.reg_date %></td>
+                           <td><%#= account.created_at   %></td>
+                         </tr>
+                         <% end %> 
+                         <% if count == 0 %>
+                         <h1>No Transaction available yet</h1>  
+                         <% end %>
+                       </tbody>
+                     </table>
+                   </div>
+                  </div>

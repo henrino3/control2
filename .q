@@ -1,0 +1,23 @@
+********************************* 1. row *********************************
+                    id: 1
+                 email: gtbank@control.com
+    encrypted_password: $2a$10$Krwl3c7RBmg2NW1r4a9V9.wM7E9sp14El/A4iCugGzUsYCLyIqIK6
+  reset_password_token: 
+reset_password_sent_at: 
+   remember_created_at: 
+         sign_in_count: 1
+    current_sign_in_at: 2015-12-06 13:04:35 UTC
+       last_sign_in_at: 2015-12-06 13:04:35 UTC
+    current_sign_in_ip: 127.0.0.1
+       last_sign_in_ip: 127.0.0.1
+                  name: Gtbank
+             bank_type: Commercial
+       registration_no: 999999999
+          founded_data: 2013
+          main_service: Banking
+          bank_website: www.gtbank.com
+         bank_logo_url: 
+                 token: 704416ad48cf262606c0bc85338fbe7d
+            created_at: 2015-12-06 13:04:35 UTC
+            updated_at: 2015-12-06 13:04:35 UTC
+1 row in set
