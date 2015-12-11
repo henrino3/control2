@@ -11,12 +11,12 @@
                                 <a href="/admins" class="waves-effect"><i class="ti-home"></i> <span> Dashboard </span> </a>
                             </li>
 
-                            <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-university"></i> <span> Banks </span> </a>
-                                <ul class="list-unstyled">
+                            <li class="">
+                                <a href="/banks_display" class="waves-effect"><i class="fa fa-university"></i> <span> Banks </span> </a>
+                                <!-- <ul class="list-unstyled">
                                     <li><%= link_to "View", controller: "banks", action: "display" %></li>
-                                    <li><%#= link_to "Unauthorized ", controller: "banks", action: "signup_requests" %></li>
-                                </ul>
+                                    <li><%#= link_to "Unauthorized ", controller: "banks", action: "display" %></li>
+                                </ul> -->
                             </li>
 
                             <li class="has_sub">
@@ -28,22 +28,23 @@
                             </li>
 
                             <li class="">
-                                <a href="transactions/" class="waves-effect"><i class="fa fa-file-text-o"></i> <span> Transactions </span> </a>
+                                <a href="/transactions/" class="waves-effect"><i class="fa fa-file-text-o"></i> <span> Transactions </span> </a>
                             </li>
 
-                            <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="ti-pencil-alt"></i><span> Data </span></a>
+<!-- 
+                            <li class="has_sub">    
+                                <a href="#" class="waves-effect"><i class="md-assignment-ind"></i><span>Admins </span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="#">Analytics</a></li>
+                                    <li><a href="/admins/all">View</a></li>
+                                    <li><a href="/admins/add">Add</a></li>
                                 </ul>
                             </li>
-
                             <li class="has_sub">    
                                 <a href="#" class="waves-effect"><i class="ti-menu-alt"></i><span>Other </span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="#">Help</a></li>
                                 </ul>
-                            </li>
+                            </li> -->
 
                         <div class="clearfix"></div>
                     </div>

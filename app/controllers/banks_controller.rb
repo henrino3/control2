@@ -6,12 +6,16 @@
   # GET /banks.json
   def index
   # @banks = Bank.all
-    redirect_to root_path
+   
+   render layout: true, action: :show
   end
   
   # GET /banks/1
   # GET /banks/1.json
   def show
+     @number_of_customers = @bank.citizen_bank_data.select(:national_id).map(&:national_id).uniq.count
+     @number_of_accounts = @bank.citizen_bank_data.count
+     @number_of_transactions = @bank.transactions.count 
   end
   
   #displays the different banks in the db
@@ -159,4 +163,6 @@
     def bank_params
       params.require(:bank).permit(:name, :bank_type, :registration_no, :founded_data, :main_service, :bank_email, :bank_website, :bank_logo_url, :token)
     end
+
+
  end

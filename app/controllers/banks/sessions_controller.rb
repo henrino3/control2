@@ -5,8 +5,12 @@ class Banks::SessionsController < Devise::SessionsController
    def new
      if current_admin
        redirect_to admins_path, :notice => "Please Logout as Admin"
+     else
+         super
+
      end
-  #   super
+    
+ 
    end
 
   # POST /resource/sign_in

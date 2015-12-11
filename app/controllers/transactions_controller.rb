@@ -5,7 +5,7 @@ class TransactionsController < ApplicationController
   # GET /transactions.json
   def index
     @transactions = Transaction.all
-    render layout: false
+    render layout: true
   end
 
   # GET /transactions/1

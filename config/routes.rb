@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   get '/citizen_transactions', to: 'citizens#getTransactions'
   get '/bank_transactions', to: 'banks#getTransactions'
   get '/bank_citizens', to: 'banks#getCustomers'
+  get '/all_admins', to: 'admins#all'
 
   # devise_scope :admins do
   #   #root to: 'citizens#index', :constraints => {:subdomain => /.+/}

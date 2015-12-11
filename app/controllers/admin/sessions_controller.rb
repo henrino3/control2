@@ -3,10 +3,12 @@ class Admin::SessionsController < Devise::SessionsController
 
   # GET /resource/sign_in
    def new
-         if current_bank
-       redirect_to banks_path, :notice => "Please Logout as Bank"
-     en
-  #   super
+      if current_bank
+         redirect_to banks_path, :notice => "Please Logout as Bank"
+
+     else
+         super
+     end
     end
 
   # POST /resource/sign_in
