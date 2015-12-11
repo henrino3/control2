@@ -25,7 +25,7 @@
                             <i class="ti-user m-r-5"></i> Hi <%= current_admin.name %>!</a>
                             <ul class="dropdown-menu">
                                 <li><a href="/admins"><i class="ti-user m-r-5"></i> Dashboard</a></li>
-                                <li><a href="javascript:void(0)"><i class="ti-settings m-r-5"></i> Settings</a></li>
+                                <li><a href="/admins/edit"><i class="ti-settings m-r-5"></i> Settings</a></li>
                                 <li></i><%= link_to "Logout",  destroy_admin_session_path %> </li>
                             </ul>
                           </li>
@@ -34,8 +34,8 @@
                             <a href="" class="dropdown-toggle profile" data-toggle="dropdown" aria-expanded="true">
                             <i class="ti-user m-r-5"></i> Hi <%= current_bank.name %> Admin!</a>
                             <ul class="dropdown-menu">
-                                <li><a href="javascript:void(0)"><i class="ti-user m-r-5"></i> Dashboard</a></li>
-                                <li><a href="javascript:void(0)"><i class="ti-settings m-r-5"></i> Settings</a></li>
+                                <li><a href="/banks"><i class="ti-user m-r-5"></i> Dashboard</a></li>
+                                <li><a href="/banks/edit"><i class="ti-settings m-r-5"></i> Settings</a></li>
                                 <li><%= link_to "Logout",  destroy_bank_session_path, method: :get %></li>
                             </ul>
                           </li>
@@ -49,21 +49,95 @@
             </div>
         </div>
 
+    <% if notice %>
+    <!-- Modal -->
+      <div id="myModal" class="modal " role="dialog">
+         <div style="opacity: 2.39; display: block;" class="sweet-overlay" tabindex="-1"></div>
+            <div style="display: block; margin-top: -105px;" class="sweet-alert showSweetAlert visible">
+            <div style="display: none;" class="sa-icon sa-custom">
+            </div>
+            <h2><%= notice %></h2>
+        </div>
+      </div>
+
+    <% end %>
+
+  <% if alert %>
+   <!-- Modal -->
+     <div id="myModal" class="modal " role="dialog">
+       <div style="opacity: 2.39; display: block;" class="sweet-overlay" tabindex="-1"></div>
+          <div style="display: block; margin-top: -105px;" class="sweet-alert showSweetAlert visible">
+          <div style="display: none;" class="sa-icon sa-custom">
+          </div>
+          <h2><%= notice %></h2>
+      </div>
+    </div>
+  <% end %>
 
 
 
-<script type="text/javascript">
+
+
+
+      <style type="text/css">
+      #myModal{
+        display: none;
+
+      }
+
+      .show{
+        display: block;
+      }
+
+      .sweet-overlay {
+        background-color: rgba(0, 0, 0, 0.4);
+        position: fixed;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+        display: none;
+    }
+
+      .sweet-alert {
+          background-color: #FFF;
+          font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+          width: 478px;
+          padding: 17px;
+          border-radius: 5px;
+          text-align: center;
+          position: fixed;
+          left: 50%;
+          top: 50%;
+          margin-left: -256px;
+          margin-top: -200px;
+          overflow: hidden;
+          display: none;
+          z-index: 99999;
+      }
+
+
+      </style>
+
+        <script type="text/javascript">
+            $('#myModal').addClass('show');
+
+            setTimeout(function close(){
+                $('#myModal').removeClass('show');
+              
+            }, 2000);
  
-  $(function () {
-    console.log('load');
-        
-        $('.dropdown').click(function(){
-          $('.dropdown-menu').fadeToggle();
-          console.log('toggle');
-        });
+       
+            $(function () {
+              console.log('load');
+                  
+                  $('.dropdown').click(function(){
+                    $('.dropdown-menu').fadeToggle();
+                    console.log('toggle');
+                  });
 
-        
+                  
 
-  });
+            });
 
-</script>
+      </script>

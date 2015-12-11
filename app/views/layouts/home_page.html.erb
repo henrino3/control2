@@ -16,22 +16,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <!-- <p class="alert alert-success">Henry  	</p> -->
-<% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
 <%= yield %>
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <script type="text/javascript">
-
-  	/*	setTimeout(function close(){
-			  $('p .alert').fadeOut('hide');
-			}, 2000);
-*/
-  </script>
 </body>
 </html>
