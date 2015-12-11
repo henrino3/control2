@@ -41,56 +41,8 @@
               <div class="col-sm-12">
                 <div class="card-box">
                   <div><h1>Dashboard</h1></div>
-                                                        <!-- Page-Title -->
-                                <div class="row">
-                                   <div class="col-sm-12">
-                                      
-                                      
-                                      
-                                  </div>
-                              </div>
-                              
-                              <div class="row">
-                               <div class="col-md-6 col-lg-4">
-                                  <div class="widget-bg-color-icon card-box fadeInDown animated">
-                                     <div class="bg-icon bg-icon-info pull-left">
-                                         <i class="fa fa-users text-info"></i>
-                                    </div>
-                                    <div class="text-right">
-                                    <h3 class="text-dark"><b class="counter"><%= @number_of_customers %></b></h3>
-                                        <a href="#super", class="text-muted">Customers</a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 col-lg-4">
-                              <div class="widget-bg-color-icon card-box">
-                                 <div class="bg-icon bg-icon-pink pull-left">
-                                     <i class="fa fa-university text-pink"></i>
-                                </div>
-                                <div class="text-right">
-                                    <h3 class="text-dark"><b class="counter"><%= @number_of_accounts %></b></h3>
-                                        <a href="#entry", class="text-muted">Accounts</a>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-lg-4">
-                          <div class="widget-bg-color-icon card-box">
-                             <div class="bg-icon bg-icon-purple pull-left">
-                                 <i class="fa fa-file-text-o text-purple"></i>
-                            </div>
-                            <div class="text-right">
-                                <h3 class="text-dark"><b class="counter"><%= @number_of_transactions %></b></h3>
-                                  <a href="#viewer", class="text-muted">Transactions</a>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                      </div>
-                      </div>
-
+                                                       
+                      <%= render 'banks/layouts/dashboard' %>
 
                 </div>
               </div>
@@ -102,54 +54,8 @@
                   
                   <div><h1>Transactions</h1></div>
 
-                  <div>  
-                      <div style="margin-top:5%" class="accounts">
-                        <div style="display:none">
-                          <% citizens = @bank.citizen_bank_data %>
-                        </div>
-
-
-                        <div class="input-group"> <span class="input-group-addon">Filter</span>
-
-                          <input id="filter" type="text" class="form-control" placeholder="Type here...">
-                        </div>
-                        <table class="table table-striped">
-                          <thead>
-                            <tr>
-                              <th>#</th>
-                              <th>Name</th>
-                              <th>Acc #</th>
-                              <th>Transaction Amount</th>
-                              <th>Account Balance</th>
-                              <th>Last transaction Date</th>
-                            </tr>
-                          </thead>
-                          <tbody class="searchable">
-                            <div style="display:none">
-                              <%= count=0 %>
-                            </div>
-                            <% citizens.each do |citizen| %>
-                            <tr>
-                              <div style="display:none">
-                               <%= citizenbio= Citizen.find_by(:id => citizen.citizen_id ) %>
-                             </div>
-                             <td><%= count=count+1 %> </td>
-                             <td data-toggle="modal" data-target="#tran" onclick="transaction(<%= citizen.id %> ,'<%= @bank.token %>')"><%= citizenbio.name %></td>
-                             <td><%= citizen.account_id %></td>
-                             <td><%= citizenbio.transactions.last.transaction_amount %></td>
-                             <td><%= citizenbio.transactions.last.account_balance %></td>
-                             <td><%= citizenbio.transactions.last.created_at   %></td>
-                           </tr>
-                           <% end %> 
-                           <% if count == 0 %>
-                           <h1>No Transaction available yet</h1>  
-                           <% end %>
-                         </tbody>
-                       </table>
-                     </div>
-                    </div>
-
-
+                  
+                      <%= render 'banks/layouts/transactions' %>
 
                 </div>
               </div>
@@ -163,112 +69,27 @@
                
                   <div><h1>Profile</h1></div>
 
-                  <div row>
-                   <div class="col-lg-3">
-                   <h2>API Token</h2>
                       
-                    </div>
-                     <div class="col-sm-12">
-                      <div class="card-box">
-                          <center>
-                          <font size="4">
-                          <strong>Token</strong>
-                          <div class="ctoken"><%= @bank.token %></div></font>
-                          </center>
-
-                              <a href="#" data-toggle="modal" data-target="#docs" onClick="miniDocs();">View Api Documentation</a>
-                      <button class="btn btn-default pull-right" onclick="changeToken('<%= @bank.token %>')">Generate New</button>
-                    <br>
-                    <font color="red"><b>Please keep your token safe</b>
-                     </div>
-                      
-
-
-
-
-                   <div class="col-lg-9">
-
-                   <h2>API Token</h2>
-
-                         <div class="panel-body">
-                              <%= render 'form' %>
-                            </div>
-
-                   </div>
-
-
-                    
+                      <%= render 'banks/layouts/profile' %>
+  
                   </div>
 
                 </div>
               </div>
-        </div>
+          </div>
 
            <div class="row" id="accounts">
               <div class="col-sm-12">
                 <div class="card-box">
                   
                 <div><h1>Accounts</h1></div>
+                
 
-                  <center>  
-                    <div style="margin-top:5%" class="accounts">
-                      <div style="display:none">
-                        <% citizens = @bank.citizen_bank_data %>
-                      </div>
-
-
-                      <div class="input-group"> <span class="input-group-addon">Filter</span>
-
-                        <input id="filter" type="text" class="form-control" placeholder="Type here...">
-                      </div>
-                      <table class="table table-striped">
-                      <% if CitizenBankDatum %>
-                        <thead>
-                          <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Acc #</th>
-                            <th>National Id</th>
-                            <th>Registration Date</th>
-                            <!-- <th>Registration </th> -->
-                          </tr>
-                        </thead>
-                        <% end %>
-                        <tbody class="searchable">
-                          <div style="display:none">
-                            <%= count=0 %>
-                          </div>
-                          <% @bank.citizen_bank_data.each do |account| %>
-                          <tr>
-                            <div style="display:none">
-                            <%= citizenbio= Citizen.find_by(:id => account.citizen_id ) %>
-                           </div>
-                           <td><%= count=count+1 %> </td>
-                           <td onclick="transaction()">
-                                <%= citizenbio.name %></td>
-                           <td><%= account.account_id %></td>
-                           <td><%= account.national_id %></td>
-                           <td><%#= account.reg_date %></td>
-                           <td><%#= account.created_at   %></td>
-                         </tr>
-                         <% end %> 
-                         <% if count == 0 %>
-                         <h1>No Transaction available yet</h1>  
-                         <% end %>
-                       </tbody>
-                     </table>
-                   </div>
-                  </center>
+                      <%= render 'banks/layouts/accounts' %>
 
                 </div>
               </div>
-        </div>
-
-
-
-
-
-
+           </div>
 
 
 
