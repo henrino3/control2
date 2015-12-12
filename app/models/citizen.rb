@@ -1,6 +1,7 @@
 class Citizen < ActiveRecord::Base
 	has_many :citizen_bank_data
 	has_many :transactions
+	attr_accessible :name,:phone_num,:email,:address,:national_id
 	
 
 
