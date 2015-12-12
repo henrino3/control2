@@ -1,20 +1,57 @@
                 <!-- Page-Title -->
-                  <div class="row">
-                   <div class="col-lg-3">
-                     <h2>API Token</h2>
-                             <strong>Token</strong>
-                            <div class="ctoken"><%= @bank.token %></div>
-                          
-                              <a href="#" onClick="miniDocs();">View Api Documentation</a>
-                              <button class="btn btn-default pull-right" onclick="changeToken('<%= @bank.token %>')">Generate New</button>
-                            <br>
-                            <span style="color:red">Please keep your token safe</span>
-                        </div>
 
-                   <div class="col-lg-9">
-                     <h2>API Token</h2>
-                         <div class="panel-body">
-                              <%= render 'form' %>
-                         </div>
-                   </div>
-                </div>
+                <div class="row">
+                          <div class="col-lg-7">
+                            <div class="card-box">
+                              <h4 class="text-dark header-title m-t-0">Bank Profile</h4>
+                              <p class="text-muted m-b-30 font-13">
+                                Edit your details
+                                    
+                                  </p>
+                              
+                              <div>
+                                <div class="table-responsive">             
+                                      <%= render 'form' %>
+                                 </div>
+                            </div>
+                            </div>
+                          </div>
+                          <!-- end col -->
+                          
+                          <div class="col-lg-5">
+                            <div class="card-box">
+                              <h4 class="text-dark header-title m-t-0">Authentication</h4>
+                              <p class="text-muted font-13">
+                                  Your API token
+                                </p>
+                              
+                              <div tabindex="5002" class="nicescroll p-20" style="height: 320px; overflow: hidden;"><a href="#" class="text-info">Token</a></strong>
+                            
+
+                                <div class="time-item">
+                                    <div class="item-info">
+                                        <div class="text-muted"><small></small></div>
+                                        <p><a href="" class="text-info"></a> </p>
+                                        <p><em> <div class="ctoken"><%= @bank.token %></div</em></p>
+                                        <span style="color:red">Please keep your token safe</span>
+                                    </div>
+
+                                    <button class="btn btn-default pull-right" onclick="changeToken('<%= @bank.token %>')">Generate New</button>
+                                </div>
+
+                                            <a href="#" onClick="miniDocs();">View Api Documentation</a>
+    
+                                        
+
+                                        
+    
+                                        
+    
+                                        
+                                    </div>
+                              </div>
+                                    
+                            </div>
+                          </div>
+                          <!-- end col -->
+                        </div>

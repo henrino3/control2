@@ -17,15 +17,10 @@
                         
         
                         <div class="panel-body">
-                          <div class="row">
-                                <div class="col-lg-6">
-                                <h3></h3>
-                                </div>                             
-                         </div>
-
+                       
 
                             <div class="row">
-                                <div class="col-lg-6">
+                                <div class="col-lg-12">
                                     <div class="p-20">
                                         
                                            <div class="input-group m-t-10">
@@ -65,15 +60,8 @@
                                                   <%= f.text_field :bank_website, autofocus: true, :class=>"form-control", :placeholder=>"Website Address" %>
                                                 <span class="input-group-addon"><i class="md md-public"></i></span>
                                               </div>
-                                            
-                                    </div>
-                                </div>
-                                
-                                
-                                <div class="col-lg-6">
-                                    <div class="p-20">                                            
-                                            <div class="form-group ">
-                                                <div class="col-xs-12">
+                                          
+                                            <div class="form-group m-t-10">
                                                         <%= f.select(:bank_type, 
                                                           options_for_select([
                                                             ["Bank Type", ], 
@@ -82,22 +70,18 @@
                                                             ["Mortgate Bank", "Mortgate Bank"]
                                                             ]), {}, { :class => "form-control"})
                                                         %>
-                                                </div>
                                             </div>
                     
                                             <div class="input-group m-t-10">
                                                   <%= f.text_field :founded_data, autofocus: true, :class=>"form-control", :placeholder=>"Founded " %>
                                                 <span class="input-group-addon"><i class="md md-star"></i></span>
                                               </div>
-
+<!-- 
                                         <div class="form-group m-t-10">
                                             <input type="file" class="filestyle" data-placeholder="No file" id="filestyle-9" tabindex="-1" style="position: absolute; clip: rect(0px 0px 0px 0px);">
-                                            <div class="bootstrap-filestyle input-group">
-                                               <input type="text" class="form-control " style="margin-left:8px"      placeholder="No file" disabled="">  <span class="group-span-filestyle input-group-btn" tabindex="0">
-                                                   <label for="filestyle-9" class="btn btn-default ">
-                                                   <span class="md md-folder-open"></span> 
-                                                   <span class="buttonText">Upload Bank Logo</span></label></span></div>
-                                                    </div>
+                                        </div>
+ -->
+
 
                                             <div class="input-group m-t-10">
                                                  <i>(we need your current password to confirm your changes)</i><br />

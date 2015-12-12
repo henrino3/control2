@@ -34,7 +34,7 @@
                             <a href="" class="dropdown-toggle profile" data-toggle="dropdown" aria-expanded="true">
                             <i class="ti-user m-r-5"></i> Hi <%= current_bank.name %> Admin!</a>
                             <ul class="dropdown-menu">
-                                <li><a href="/banks"><i class="ti-user m-r-5"></i> Dashboard</a></li>
+                                <li><a href="/banks/<%= current_bank.id %>"><i class="ti-user m-r-5"></i> Dashboard</a></li>
                                 <li><a href="/banks/edit"><i class="ti-settings m-r-5"></i> Settings</a></li>
                                 <li><%= link_to "Logout",  destroy_bank_session_path, method: :get %></li>
                             </ul>

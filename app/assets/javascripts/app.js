@@ -86,14 +86,16 @@ function transaction(id,token) {
 	request(function (jsondata) {
 		object = JSON.parse(jsondata);
 		var data = object.table.transactions;
+		no = 1;
 		for(i=0 ; data.length>i ;i++){
 			imediateData=data[i];
 			if(imediateData.citizen_id === id ){
 
-				$("#mod-data").html("<tr><td>"+imediateData.transaction_name+"</td><td >"+imediateData.transaction_amount+"</td> <td>"
+				$("#mod-data").html("<tr><td>"+no+"</td><td>"+imediateData.transaction_name+"</td><td >"+imediateData.transaction_amount+"</td> <td>"
 					+imediateData.account_balance+"</td> <td>"+imediateData.updated_at+"</td></tr>");	
 				$('#tran').addClass('show');
 			}
+			no++;
 		}
 
 	},"GET","/transaction/get.json?token="+token);
@@ -121,3 +123,8 @@ function miniDocs(){
 	$('#docs').addClass('show');
 };
 	
+
+	function klose(){
+			$('#tran').removeClass('show');
+			$('#docs').removeClass('show');
+	};

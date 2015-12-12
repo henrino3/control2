@@ -1,3 +1,15 @@
+     <style type="text/css">
+      .hide{
+        display: none;
+      }
+      tr{
+        cursor: pointer;
+      }
+
+      table{
+        width:100%;
+      }
+     </style>
      <!-- Begin page -->
      <div id="wrapper">
 
@@ -114,70 +126,117 @@
 
   </div>
 
-<div id="tran" style="width:100%" class="modal " role="dialog">
-  <div class="modal-dialog" >
+<div class="row">                                 
+  <div class="col-md-12">
+    <div id="tran" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="full-width-modalLabel" aria-hidden="true" style="display: none;">
+    <div class="bg-overlay"></div>
+        <div class="modal-dialog modal-full">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" onClick="klose();" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="full-width-modalLabel">Citizens Transactions</h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-responsive table-striped">
+                          <thead>
+                           <tr>
+                           <th>#</th>
+                            <th>Transaction Type</th>
+                            <th>Transaction Amount</th>
+                            <th>Account Balance</th>
+                            <th>Transaction Date</th>
+                          </tr>
+                        </thead>
+                        <tbody class=\"searchable\"  id="mod-data">
+                         
 
-    <!-- Modal content-->
-    <div class="modal-content">
-
-      <div class="modal-body">
-        <thead>
-         <tr>
-
-          <th>Transaction Type</th>
-          <th>Transaction Amount</th>
-          <th>Account Balance</th>
-          <th>Transaction Date</th>
-        </tr>
-      </thead>
-      <tbody class=\"searchable\">
-        <div id="mod-data"></div>
-
-      </tbody>
-    </table>
-
+                        </tbody>
+                      </table>
+                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" onClick="klose();">Close</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
   </div>
 </div>
-</div>
-</div>
-
-
-
-
-            <div id="docs" style="width:60%" class="modal " role="dialog">
-              <div class="modal-dialog" >
-
-                <!-- Modal content-->
-                <div class="modal-content">
-
-                  <div class="modal-body">
-                    <pre>
-                      <p>This is the API documentation for the Control Suite. Step-by-step instructions of how you can interface with our API to get the best result.
-                        There are a couple of things you can accomplish with our API and they are as follows:</p> 
-                        <u>Token: <%= @bank.token %></u>
-                        <ol>
-                          <li>Get Transactions i.e Retrieve transactions that are related to your bank</li>
-                          <li>Post Transactions i.e Push transactions pertaining to your bank onto the control suite platform</li>
-                          <li>Get Users</li>
-                          <li>Create Users</li>
-                        </ol>
-
-                        <u>Get transactions</u>
-                        http://localhost:3000/transactions.json
-                        {code here}
-                        <u>post transactions</u>
-                        {json here}
-                        {code here}
-                        <u>get user</u>
-                        {json here}
-                        {code here}
-                        <u>create user</u>
-                        {json here}
-                        {code here}
-
-                      </pre>
-
-                    </div>
-                  </div>
+<div class="row">                                 
+  <div class="col-md-12">
+    <div id="tran" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="full-width-modalLabel" aria-hidden="true" style="display: none;">
+    <div class="bg-overlay"></div>
+        <div class="modal-dialog modal-full">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" onClick="klose();" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="full-width-modalLabel">Citizens Transactions</h4>
                 </div>
-              </div>
+                <div class="modal-body">
+                    <table class="table table-responsive table-striped">
+                          <thead>
+                           <tr>
+                           <th>#</th>
+                            <th>Transaction Type</th>
+                            <th>Transaction Amount</th>
+                            <th>Account Balance</th>
+                            <th>Transaction Date</th>
+                          </tr>
+                        </thead>
+                        <tbody class=\"searchable\"  id="mod-data">
+                         
+
+                        </tbody>
+                      </table>
+                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" onClick="klose();">Close</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+  </div>
+</div>
+
+
+
+
+    <div id="docs" style="width:100%" class="modal " role="dialog">
+            <div class="modal-dialog modal-full">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" onClick="klose();" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="full-width-modalLabel">API Documentation</h4>
+                </div>
+                <div class="modal-body">
+                   <p>This is the API documentation for the Control Suite. Step-by-step instructions of how you can interface with our API to get the best result.
+                  There are a couple of things you can accomplish with our API and they are as follows:</p> 
+                  <u>Token: <%= @bank.token %></u>
+                  <ol>
+                    <li>Get Transactions i.e Retrieve transactions that are related to your bank</li>
+                    <li>Post Transactions i.e Push transactions pertaining to your bank onto the control suite platform</li>
+                    <li>Get Users</li>
+                    <li>Create Users</li>
+                  </ol>
+
+                  <u>Get transactions</u>
+                  http://localhost:3000/transactions.json
+                  {code here}
+                  <u>post transactions</u>
+                  {json here}
+                  {code here}
+                  <u>get user</u>
+                  {json here}
+                  {code here}
+                  <u>create user</u>
+                  {json here}
+                  {code here}
+
+                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" onClick="klose();">Close</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    </div>
