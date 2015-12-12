@@ -47,7 +47,6 @@ before_filter :configure_account_update_params, only: [:update]
    def configure_account_update_params
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit() }
   end 
-   end
 
   # def configure_permitted_parameters
   #  devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :bank_type, :registration_no, :founded_data, :main_service, :bank_website, :email, :password, :password_confirmation) }

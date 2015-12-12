@@ -33,7 +33,7 @@
                             <%= citizenbio= Citizen.find_by(:id => account.citizen_id ) %>
                            </div>
                            <td><%= count=count+1 %> </td>
-                           <td onclick="transaction()">
+                           <td onclick="transaction(<%= account.citizen.id %> ,'<%= @bank.token %>')">
                                 <%= citizenbio.name %></td>
                            <td><%= account.account_id %></td>
                            <td><%= account.national_id %></td>
